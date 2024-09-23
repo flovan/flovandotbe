@@ -1,5 +1,4 @@
-import { FunctionComponent } from 'react'
-const NotFoundPage: FunctionComponent = () => {
+const NotFoundPage = () => {
   return (
     <div>
       Page not found

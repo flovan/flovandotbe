@@ -1,6 +1,4 @@
-import { FunctionComponent } from 'react'
-
-const Contact: FunctionComponent = () => {
+const ContactPage = () => {
   return (
     <div>
       Contact
@@ -8,5 +6,5 @@ const Contact: FunctionComponent = () => {
   )
 }
 
-export default Contact
+export default ContactPage
 

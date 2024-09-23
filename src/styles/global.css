@@ -15,37 +15,29 @@
     --font-sans: 'Space Grotesk';
   }
 
+  /**, *::before, *::after {
+    transition: all .15s ease-in-out;
+  }*/
+
   body {
-    @apply font-sans text-base font-normal;
+    @apply font-sans text-flovan-base font-light pt-flovan-sm bg-background text-on-primary;
   }
 
- /* h1 {
-    @apply text-5xl;
+  body.dark {
+    --primary: theme('colors.blue.400');
+    --on-primary: theme('colors.blue.50');
+    --background: theme('colors.blue.950');
+    --on-background: theme('colors.blue.900');
+    --highlight: theme('colors.blue.200');
   }
 
-  h2 {
-    @apply text-4xl;
+  body.light {
+    --primary: theme('colors.pink.400');
+    --on-primary: theme('colors.pink.950');
+    --background: theme('colors.white');
+    --on-background: theme('colors.pink.50');
+    --highlight: theme('colors.pink.200');
   }
-
-  h3 {
-    @apply text-3xl;
-  }
-
-  h4 {
-    @apply text-2xl;
-  }
-
-  h5 {
-    @apply text-xl;
-  }
-
-  h6 {
-    @apply text-lg;
-  }*/
-
-  /*small {
-    @apply text-small;
-  }*/
 
   a {
     @apply underline;
@@ -54,4 +46,59 @@
   }
 }
 
-/* @layer utilities {} */
+ @layer utilities {
+   .visually-hidden {
+     clip-path: inset(50%);
+     clip: rect(0 0 0 0);
+     height: 1px;
+     overflow: hidden;
+     position: absolute;
+     white-space: nowrap;
+     width: 1px;
+   }
+
+   .not-visually-hidden {
+     clip-path: none;
+     clip: auto;
+     height: auto;
+     overflow: auto;
+     white-space: normal;
+     width: auto;
+   }
+
+   .title-line {
+     @apply relative mb-flovan-md after:absolute after:h-12 after:w-px after:bg-primary after:left-0 after:top-full after:translate-y-6;
+   }
+
+   .prose > *:not(last-child) {
+     margin-bottom: 1em;
+   }
+
+   .scroll-slide-up {
+     animation: projectCardSlideUp linear;
+     animation-timeline: scroll(y);
+   }
+
+   .scroll-slide-down {
+     animation: projectCardSlideDown linear;
+     animation-timeline: scroll(y);
+   }
+ }
+
+@keyframes projectCardSlideUp {
+   from {
+     transform: translateY(theme(spacing.flovan-md));
+   }
+   to {
+     transform: translateY(calc(theme(spacing.flovan-md) * -1));
+   }
+}
+
+@keyframes projectCardSlideDown {
+   from {
+     transform: translateY(calc(theme(spacing.flovan-base) * -1));
+   }
+   to {
+     transform: translateY(theme(spacing.flovan-base));
+   }
+}

@@ -1,6 +1,4 @@
-import { FunctionComponent } from 'react'
-
-const Info: FunctionComponent = () => {
+const InfoPage = () => {
   return (
     <div>
       Info
@@ -8,4 +6,4 @@ const Info: FunctionComponent = () => {
   )
 }
 
-export default Info
+export default InfoPage
