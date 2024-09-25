@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { select } from 'd3'
+import { select, Transition } from 'd3'
 import { interpolate } from 'flubber'
 
 import { shuffleArray } from '../lib/array'
@@ -31,31 +31,52 @@ const BlobSvg = ({ id }: { id: string }) => (
   </svg>
 )
 
+/**
+ * Blob component that morphs in between several paths in a randomized order.
+ *
+ * Here's a fun little side-note: the D3 transition does not stop running when this component unmounts.
+ * Even `interrupt`ing it does not seem to do anything.. So, very ugly workaround: we keep track of the unmounted state,
+ * and when the transition ends, we only move on to the next path if the component is still mounted.
+ *
+ * Yikes.
+ *
+ * This does fix an issue where rapidly navigating back and forth caused blobs to flicker because of parallel
+ * transitions.
+ */
 const Blob = ({ id, className }: PropsWithClassName<{ id: string }>) => {
   const pathIndex = useRef(0)
   const paths = useRef(shuffleArray(blobPaths))
+  const unmounted = useRef(false)
 
   const setNextPathIndex = () => {
     pathIndex.current = (pathIndex.current + 1) % paths.current.length
   }
 
-  const morph = () => {
+  const morph = async () => {
     const interpolator = interpolate(
       paths.current[pathIndex.current],
       paths.current[pathIndex.current + 1] ?? paths.current[0],
     )
 
-    select(`#${id}`)
+    const transition = select(`#${id}`)
       .transition()
       .duration(8000)
       .attrTween('d', () => interpolator)
-      .on('end', () => {
-        setNextPathIndex()
-        morph()
-      })
+
+    await transition.end()
+
+    if (!unmounted.current) {
+      setNextPathIndex()
+      void morph()
+    }
   }
 
-  useEffect(morph, [])
+  useEffect(() => {
+    void morph()
+    return () => {
+      unmounted.current = true
+    }
+  }, [])
 
   return (
     <div className={mergeClassName(className, 'pointer-events-none')}>
