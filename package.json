@@ -14,6 +14,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "d3": "^7.9.0",
+    "flubber": "^0.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.12"
@@ -22,6 +24,7 @@
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@skagami/gatsby-plugin-dark-mode": "^2.0.0",
+    "@types/d3": "^7.4.3",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "22.5.5",
     "@types/react-dom": "^18.3.0",

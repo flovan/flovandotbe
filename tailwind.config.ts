@@ -40,7 +40,7 @@ const config: Config = {
         600: '#007ccc',
         700: '#0062a5',
         800: '#045488',
-        900: '#0a4670',
+        900: '#052338',
         950: '#041c2f', // this is our black
       },
     },
@@ -80,6 +80,7 @@ const config: Config = {
       colors: {
         primary: 'var(--primary)',
         'on-primary': 'var(--on-primary)',
+        'on-primary-secondary': 'var(--on-primary-secondary)',
         background: 'var(--background)',
         'on-background': 'var(--on-background)',
         highlight: 'var(--highlight)',

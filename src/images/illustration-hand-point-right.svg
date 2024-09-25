@@ -2,7 +2,7 @@
      style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
   <g transform="matrix(1,0,0,1,-2286.57,-2929.98)">
     <g transform="matrix(-0.667804,-4.85325e-17,-4.85325e-17,0.667804,2712.78,1658.37)">
-      <circle cx="590.978" cy="1951.41" r="47.25" style="fill:var(--primary);"/>
+      <circle cx="590.978" cy="1951.41" r="47.25" style="fill:var(--highlight);"/>
     </g>
     <g transform="matrix(4.23963e-17,-0.58337,0.830351,6.03455e-17,1763.09,3207.16)">
       <path

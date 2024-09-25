@@ -20,23 +20,35 @@
   }*/
 
   body {
-    @apply font-sans text-flovan-base font-light pt-flovan-sm bg-background text-on-primary;
+    @apply font-sans text-flovan-base font-light pt-flovan-sm bg-background text-on-primary overflow-x-hidden;
+  }
+
+  @media screen(2xl) {
+    html {
+      font-size: 20px;
+    }
   }
 
   body.dark {
     --primary: theme('colors.blue.400');
-    --on-primary: theme('colors.blue.50');
+    --on-primary: theme('colors.blue.200');
+    --on-primary-secondary: theme('colors.blue.500');
     --background: theme('colors.blue.950');
     --on-background: theme('colors.blue.900');
-    --highlight: theme('colors.blue.200');
+    --highlight: theme('colors.blue.700');
   }
 
   body.light {
     --primary: theme('colors.pink.400');
     --on-primary: theme('colors.pink.950');
+    --on-primary-secondary: theme('colors.pink.800');
     --background: theme('colors.white');
     --on-background: theme('colors.pink.50');
     --highlight: theme('colors.pink.200');
+  }
+
+  main {
+    box-shadow: 0 -1.75rem 0rem var(--background), theme(boxShadow.lg);
   }
 
   a {
