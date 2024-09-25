@@ -1,9 +1,7 @@
+import Layout from '../components/layout/Layout'
+
 const PricingPage = () => {
-  return (
-    <div>
-      Pricing
-    </div>
-  )
+  return <Layout>Pricing</Layout>
 }
 
 export default PricingPage
