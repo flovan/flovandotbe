@@ -7,7 +7,7 @@ import Heading from '../components/ui/Heading'
 import PointyLink from '../components/ui/PointyLink'
 import CommandmentsVisual from '../images/illustration-commandments.svg'
 import DesignDevelopmentVisual from '../images/illustration-design-development.svg'
-import WepAppsVisual from '../images/illustration-web-applications.svg'
+import WebAppsVisual from '../images/illustration-web-applications.svg'
 
 const InfoPage = () => {
   return (
@@ -46,7 +46,7 @@ const InfoPage = () => {
           </div>
         </div>
         <Blob
-          id="hero-blob"
+          id="info-hero-blob"
           className="absolute right-0 top-0 h-[900px] w-[900px] -translate-y-1/2 translate-x-1/3"
         />
       </Container>
@@ -82,7 +82,7 @@ const InfoPage = () => {
         id="web-application"
       >
         <div className="flex justify-center md:absolute md:right-0 md:top-1/2 md:w-[calc((100%-8rem)/3)] md:-translate-y-1/2 lg:w-[calc((100%-12rem)/3)]">
-          <WepAppsVisual className="h-auto w-full max-w-80 md:max-w-max" />
+          <WebAppsVisual className="h-auto w-full max-w-80 md:max-w-max" />
           <Blob
             id="web-apps-blob"
             className="absolute left-1/2 top-1/4 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 md:top-1/2"

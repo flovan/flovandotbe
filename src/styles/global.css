@@ -16,7 +16,7 @@
   }
 
   body {
-    @apply font-sans text-flovan-base font-light pt-flovan-sm bg-background text-on-primary;
+    @apply font-sans text-flovan-base font-light pt-flovan-sm bg-background text-on-primary overflow-x-hidden;
   }
 
   div[id] {
@@ -48,13 +48,21 @@
   }
 
   main {
-    box-shadow: 0 -1.75rem 0rem var(--background), theme(boxShadow.lg);
+    @apply slide-shadow;
   }
 
-  a {
-    @apply underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.2rem;
+  a:not(.no-underline) {
+    @apply bg-repeat-x;
+    text-decoration: none;
+    background-image: url('/svg/wavy-underline-pattern-pink.svg');
+    background-size: .3em .8em;
+    background-position: 0 .75em;
+  }
+  body.dark a:not(.no-underline) {
+    background-image: url('/svg/wavy-underline-pattern-blue.svg');
+  }
+  a:not(.no-underline):hover {
+    animation: link-waves .4s linear infinite;
   }
 }
 
@@ -107,6 +115,10 @@
      animation: projectCardSlideDown linear;
      animation-timeline: scroll(y);
    }
+
+   .slide-shadow {
+     box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .14), 0 5px 10px -10px rgba(0, 0, 0, .25);
+   }
  }
 
 @keyframes projectCardSlideUp {
@@ -125,4 +137,13 @@
    to {
      transform: translateY(theme(spacing.flovan-base));
    }
+}
+
+@keyframes link-waves {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: .81em;
+  }
 }

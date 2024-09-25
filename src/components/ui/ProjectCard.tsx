@@ -32,7 +32,7 @@ const ProjectCard = ({ project, children, className }: ProjectCardProps) => {
 const ProjectCardImage = () => {
   const { image } = useProjectCardContext()
   return (
-    <div className="mb-flovan-sm overflow-hidden rounded-default bg-highlight drop-shadow-lg">
+    <div className="mb-flovan-sm overflow-hidden rounded-default bg-highlight shadow-lg">
       <GatsbyImage image={image} alt="Project" placeholder="blurred" />
     </div>
   )

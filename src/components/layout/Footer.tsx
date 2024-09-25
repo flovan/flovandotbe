@@ -18,7 +18,7 @@ const Footer = ({ className }: PropsWithClassName) => {
     <>
       <div
         className={mergeClassName(
-          'sticky bottom-0 z-10 -mb-flovan-sm rounded-bl-default rounded-br-default bg-on-background pb-flovan-lg pt-[11.5rem] shadow-lg',
+          'slide-shadow sticky bottom-0 z-10 -mb-flovan-sm rounded-bl-default rounded-br-default bg-on-background pb-flovan-lg pt-[11.5rem]',
           className,
         )}
       >

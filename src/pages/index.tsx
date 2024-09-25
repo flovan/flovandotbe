@@ -43,7 +43,7 @@ const HomePage = props => {
           <HeroVisual className="hidden flex-1 lg:block" />
         </div>
         <Blob
-          id="hero-blob"
+          id="home-hero-blob"
           className="absolute left-0 top-0 h-[900px] w-[900px] -translate-x-1/3 -translate-y-1/2"
         />
       </Container>
@@ -74,12 +74,12 @@ const HomePage = props => {
       <Container className="relative">
         <div className="relative z-10">
           <Heading level={2}>I happily worked for these clients</Heading>
-          <div className="relative grid grid-cols-1 gap-y-flovan-md md:grid-cols-3 md:gap-flovan-md">
+          <div className="relative grid grid-cols-1 gap-y-flovan-md md:grid-cols-3 md:gap-flovan-base lg:gap-flovan-md">
             <p className="relative z-10 col-span-2 text-flovan-md font-light">
               In The Pocket, Actes, Telenet, Bakermat Architectuur, icapps, The
               Reference, Vlaamse Overheid
             </p>
-            <div className="flex justify-center md:absolute md:right-0 md:top-1/2 md:w-[calc((100%-12rem)/3)] md:-translate-y-1/2">
+            <div className="flex justify-center md:absolute md:right-0 md:top-1/2 md:w-[calc((100%-8rem)/3)] md:-translate-y-1/2 lg:w-[calc((100%-12rem)/3)]">
               <ClientsVisual className="h-auto w-full max-w-80 md:max-w-max" />
               <Blob
                 id="clients-visual-blob"

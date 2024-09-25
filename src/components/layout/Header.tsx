@@ -8,7 +8,7 @@ import Container from './Container'
 const Header = ({ className }: PropsWithClassName) => (
   <header className={className}>
     <Container className="flex justify-between align-middle">
-      <Link to="/" activeClassName="*:fill-primary">
+      <Link to="/" className="no-underline" activeClassName="*:fill-primary">
         <Icon
           name="logo-flovan"
           className="fill-on-primary"
