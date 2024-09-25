@@ -27,7 +27,7 @@ const HomePage = props => {
             <p className="title-line text-flovan-lg font-normal">
               First-class websites and digital products.
             </p>
-            <div className="prose mb-flovan-base">
+            <div className="prose">
               <p>
                 Flovan is a web development studio specializing in designing and
                 building websites and web applications, tailored to your
@@ -37,8 +37,8 @@ const HomePage = props => {
                 With over 10 years of experience, your next (or current!)
                 endeavour is in good hands.
               </p>
+              <PointyLink to="/info">More on my services</PointyLink>
             </div>
-            <PointyLink to="/info">More on my services</PointyLink>
           </div>
           <HeroVisual className="hidden flex-1 lg:block" />
         </div>
@@ -51,13 +51,13 @@ const HomePage = props => {
         <Heading level={2} className="relative z-10">
           The latest work I did
         </Heading>
-        <div className="relative z-10 grid grid-cols-1 gap-flovan-md lg:grid-cols-2">
+        <div className="relative z-10 grid grid-cols-1 gap-flovan-sm md:grid-cols-2 lg:gap-flovan-md">
           {projects.slice(0, 2).map((project, index) => (
             <ProjectCard
               key={project.id}
               project={project}
               className={
-                index % 2 === 0 ? 'lg:scroll-slide-up' : 'lg:scroll-slide-down'
+                index % 2 === 0 ? 'md:scroll-slide-up' : 'md:scroll-slide-down'
               }
             >
               <ProjectCard.Image />
@@ -79,11 +79,11 @@ const HomePage = props => {
               In The Pocket, Actes, Telenet, Bakermat Architectuur, icapps, The
               Reference, Vlaamse Overheid
             </p>
-            <div className="flex justify-center md:absolute md:right-0 md:top-1/2 md:w-1/3 md:-translate-y-1/2">
+            <div className="flex justify-center md:absolute md:right-0 md:top-1/2 md:w-[calc((100%-12rem)/3)] md:-translate-y-1/2">
               <ClientsVisual className="h-auto w-full max-w-80 md:max-w-max" />
               <Blob
                 id="clients-visual-blob"
-                className="absolute left-1/2 top-1/2 z-[-1] hidden h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 md:block"
+                className="absolute left-1/2 top-1/2 z-[-1] hidden h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 md:block"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ const HomePage = props => {
         <Heading level={2}>Here&rsquo;s what I can do for you</Heading>
         <div className="grid grid-cols-1 gap-flovan-md lg:grid-cols-2">
           <div>
-            <div className="prose mb-flovan-base">
+            <div className="prose">
               <Heading level={3}>Web design &amp; development</Heading>
               <p>
                 When you combine friendly, modern design with web development
@@ -106,11 +106,13 @@ const HomePage = props => {
                 <em>google&rsquo;ability</em>, fast loading times and standing
                 out from your competition are all part of the deal.
               </p>
+              <PointyLink to="/info#web-design-development">
+                More on websites
+              </PointyLink>
             </div>
-            <PointyLink to="/info#web">More on websites</PointyLink>
           </div>
           <div>
-            <div className="prose mb-flovan-base">
+            <div className="prose">
               <Heading level={3}>Web Applications</Heading>
               <p>
                 Businesses often need help digitalizing their processes with
@@ -119,20 +121,14 @@ const HomePage = props => {
                 Already got a team working on your digital products? I am open
                 to long-term consultancy collaboration as well.
               </p>
+              <PointyLink to="/info#web-application">
+                More on web apps
+              </PointyLink>
             </div>
-            <PointyLink to="/info#web-apps">More on web apps</PointyLink>
           </div>
         </div>
       </Container>
     </Layout>
-  )
-}
-
-export function Head() {
-  return (
-    <>
-      <html lang="en" id="home-page" />
-    </>
   )
 }
 

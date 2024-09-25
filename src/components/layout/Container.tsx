@@ -6,12 +6,14 @@ import { PropsWithClassName } from '../../types/types'
 const Container = ({
   children,
   className,
-}: PropsWithChildren<PropsWithClassName>) => (
+  ...rest
+}: PropsWithChildren<PropsWithClassName<HTMLDivElement>>) => (
   <div
     className={mergeClassName(
       className,
       'mx-auto w-full max-w-screen-xl 2xl:max-w-screen-2xl',
     )}
+    {...rest}
   >
     {children}
   </div>

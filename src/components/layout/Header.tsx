@@ -1,19 +1,32 @@
-import {Link} from "gatsby"
+import { Link } from 'gatsby'
 
-import {PropsWithClassName} from "../../types/types"
-import {Icon} from "../ui/Icon"
-import MenuLink from "../ui/MenuLink"
-import Container from "./Container"
+import { PropsWithClassName } from '../../types/types'
+import { Icon } from '../ui/Icon'
+import MenuLink from '../ui/MenuLink'
+import Container from './Container'
 
-const Header = ({className}: PropsWithClassName) => (
+const Header = ({ className }: PropsWithClassName) => (
   <header className={className}>
     <Container className="flex justify-between align-middle">
-      <Link to="/"><Icon name="logo-flovan" className="fill-primary" width={26} height={19} /></Link>
+      <Link to="/" activeClassName="*:fill-primary">
+        <Icon
+          name="logo-flovan"
+          className="fill-on-primary"
+          width={26}
+          height={19}
+        />
+      </Link>
       <nav>
         <ul className="flex gap-8">
-          <li><MenuLink to="/info">Info</MenuLink></li>
-          <li><MenuLink to="/pricing">Pricing</MenuLink></li>
-          <li><MenuLink to="/contact">Contact</MenuLink></li>
+          <li>
+            <MenuLink to="/info">Info</MenuLink>
+          </li>
+          <li>
+            <MenuLink to="/pricing">Pricing</MenuLink>
+          </li>
+          <li>
+            <MenuLink to="/contact">Contact</MenuLink>
+          </li>
         </ul>
       </nav>
     </Container>

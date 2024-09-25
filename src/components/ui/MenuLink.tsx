@@ -1,12 +1,13 @@
-import {PropsWithChildren} from "react"
-import {GatsbyLinkProps, Link} from "gatsby"
+import { PropsWithChildren } from 'react'
+import { GatsbyLinkProps, Link } from 'gatsby'
 
-type MenuLinkProps = Pick<GatsbyLinkProps<HTMLAnchorElement>, 'to'> & PropsWithChildren
+type MenuLinkProps = Pick<GatsbyLinkProps<HTMLAnchorElement>, 'to'> &
+  PropsWithChildren
 
-const MenuLink = ({children, to}: MenuLinkProps) => (
+const MenuLink = ({ children, to }: MenuLinkProps) => (
   <Link
-    className="relative font-semibold uppercase text-flovan-sm tracking-widest no-underline after:absolute after:top-6 after:left-1/2 after:-translate-x-1/2 after:hidden after:w-4 after:h-flovan-stroke after:rounded-full after:bg-primary hover:after:block"
-    activeClassName="font-bold after:block"
+    className="relative text-flovan-sm font-semibold uppercase tracking-widest no-underline after:absolute after:left-1/2 after:top-6 after:hidden after:h-flovan-stroke after:w-4 after:-translate-x-1/2 after:rounded-full after:bg-primary hover:after:block"
+    activeClassName="text-primary first:after:block"
     to={to}
   >
     {children}

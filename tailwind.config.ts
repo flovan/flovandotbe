@@ -90,6 +90,7 @@ const config: Config = {
         'flovan-md': '6rem',
         'flovan-base': '4rem',
         'flovan-sm': '1.5rem',
+        'flovan-xs': '1rem',
         'flovan-stroke': '0.3125rem',
       },
       borderWidth: {
