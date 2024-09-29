@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
+import { IGatsbyImageData } from 'gatsby-plugin-image/dist/src/components/gatsby-image.browser'
 
 import { getProjects } from '../_temporay_data'
 import Blob from '../components/Blob'
@@ -13,7 +14,13 @@ import ClientsVisual from '../images/illustration-hands-hold-up-heart.svg'
 
 const HomePage = props => {
   const projects = getProjects(
-    props.data.photos.edges.map(edge => getImage(edge.node)),
+    props.data.photos.edges.reduce<Map<string, IGatsbyImageData>>(
+      (map, edge) => {
+        map.set(edge.node.name, getImage(edge.node))
+        return map
+      },
+      new Map(),
+    ),
   )
 
   return (
@@ -21,12 +28,9 @@ const HomePage = props => {
       <Container className="relative">
         <div className="relative z-10 flex flex-col items-center gap-flovan-sm lg:flex-row xl:gap-flovan-md">
           <div className="flex-1">
-            <Heading level={1} className="visually-hidden">
-              Flovan, your web development studio.
+            <Heading level={1} className="title-line">
+              Impactful web creations for businesses like yours.
             </Heading>
-            <p className="title-line text-flovan-lg font-normal">
-              First-class websites and digital products.
-            </p>
             <div className="prose">
               <p>
                 Flovan is a web development studio specializing in designing and
@@ -34,8 +38,8 @@ const HomePage = props => {
                 specific needs.
               </p>
               <p>
-                With over 10 years of experience, your next (or current!)
-                endeavour is in good hands.
+                Come get some <em>www-wow</em> to tell your story, engage your
+                audience, and drive your business forward.
               </p>
               <PointyLink to="/info">More on my services</PointyLink>
             </div>
@@ -52,7 +56,7 @@ const HomePage = props => {
           The latest work I did
         </Heading>
         <div className="relative z-10 grid grid-cols-1 gap-flovan-sm md:grid-cols-2 lg:gap-flovan-md">
-          {projects.slice(0, 2).map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectCard
               key={project.id}
               project={project}
@@ -137,12 +141,13 @@ export const query = graphql`
     photos: allFile(
       filter: {
         extension: { regex: "/(png)/" }
-        name: { regex: "/(project)/" }
+        name: { regex: "/(project-)(actes)|(tpvision)/" }
       }
     ) {
       edges {
         node {
           id
+          name
           childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED

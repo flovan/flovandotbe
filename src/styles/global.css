@@ -15,17 +15,23 @@
     --font-sans: 'Space Grotesk';
   }
 
+  @media screen(2xl) {
+    html {
+      font-size: 20px;
+    }
+  }
+
   body {
     @apply font-sans text-flovan-base font-light pt-flovan-sm bg-background text-on-primary overflow-x-hidden;
   }
 
-  div[id] {
+  [id] {
     scroll-margin-top: theme(spacing.flovan-lg);
   }
 
-  @media screen(2xl) {
-    html {
-      font-size: 20px;
+  @media screen(xl) {
+    [id] {
+      scroll-margin-top: theme(spacing.flovan-xl);
     }
   }
 
@@ -51,18 +57,24 @@
     @apply slide-shadow;
   }
 
-  a:not(.no-underline) {
+  a:not(.no-underline),
+  button.underline{
     @apply bg-repeat-x;
     text-decoration: none;
     background-image: url('/svg/wavy-underline-pattern-pink.svg');
     background-size: .3em .8em;
     background-position: 0 .75em;
   }
-  body.dark a:not(.no-underline) {
+  body.dark a:not(.no-underline),
+  body.dark button.underline {
     background-image: url('/svg/wavy-underline-pattern-blue.svg');
   }
-  a:not(.no-underline):hover {
+  a:not(.no-underline):hover,
+  button.underline:hover {
     animation: link-waves .4s linear infinite;
+  }
+  button.underline {
+    text-decoration: none;
   }
 }
 
@@ -144,6 +156,6 @@
     background-position-x: 0;
   }
   100% {
-    background-position-x: .81em;
+    background-position-x: 19px;
   }
 }

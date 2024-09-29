@@ -1,23 +1,33 @@
-import {HTMLAttributes, PropsWithChildren} from "react"
+import { HTMLAttributes, HTMLProps, PropsWithChildren } from 'react'
 
-import mergeClassName from "../../lib/merge-class-name"
-import {PropsWithClassName} from "../../types/types"
+import mergeClassName from '../../lib/merge-class-name'
+import { PropsWithClassName } from '../../types/types'
 
-type HeadingProps = PropsWithChildren<PropsWithClassName<{
-  level: 1 | 2 | 3
-}>>
+type HeadingProps = HTMLProps<HTMLHeadingElement> &
+  PropsWithChildren<
+    PropsWithClassName<{
+      level: 1 | 2 | 3
+      as?: string
+    }>
+  >
 
-const Heading = ({ level, className, children }: HeadingProps) => {
-  const HeadingElement = `h${level}`
+const Heading = ({
+  level,
+  className,
+  children,
+  as,
+  ...props
+}: HeadingProps) => {
+  const HeadingElement = as ?? `h${level}`
 
   let baseClassName: HTMLAttributes<HTMLElement>['className']
   switch (level) {
-    // <h1>'s are purely there for SEO, and not meant to be visible to the visitor
     case 1:
-      baseClassName = 'visually-hidden'
+      baseClassName = 'text-flovan-lg font-normal'
       break
     case 2:
-      baseClassName = 'text-flovan-sm uppercase tracking-wider font-semibold title-line'
+      baseClassName =
+        'text-flovan-sm uppercase tracking-wider font-semibold title-line'
       break
     case 3:
       baseClassName = 'text-flovan-md font-normal'
@@ -27,7 +37,10 @@ const Heading = ({ level, className, children }: HeadingProps) => {
   }
 
   return (
-    <HeadingElement className={mergeClassName(baseClassName, className)}>
+    <HeadingElement
+      className={mergeClassName(baseClassName, className)}
+      {...props}
+    >
       {children}
     </HeadingElement>
   )

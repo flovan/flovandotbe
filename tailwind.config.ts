@@ -86,6 +86,7 @@ const config: Config = {
         highlight: 'var(--highlight)',
       },
       spacing: {
+        'flovan-xl': '16rem',
         'flovan-lg': '10rem',
         'flovan-md': '6rem',
         'flovan-base': '4rem',

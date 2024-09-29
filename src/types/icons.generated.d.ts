@@ -2,10 +2,8 @@
 
 export type IconName =
   | 'asterix'
-  | 'code'
+  | 'emoji-blink'
   | 'github'
   | 'linkedin'
   | 'logo-flovan'
-  | 'moon'
-  | 'sun'
   | 'x'
