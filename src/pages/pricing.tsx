@@ -127,4 +127,20 @@ const PricingPage = () => {
   )
 }
 
+// export const query = graphql`
+//   query PricingPage($language: String!) {
+//     locales: allLocale(
+//       filter: { ns: { in: ["common", "pricing"] }, language: { eq: $language } }
+//     ) {
+//       edges {
+//         node {
+//           ns
+//           data
+//           language
+//         }
+//       }
+//     }
+//   }
+// `
+
 export default PricingPage

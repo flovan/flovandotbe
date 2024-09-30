@@ -98,4 +98,20 @@ const ContactPage = () => {
   )
 }
 
+// export const query = graphql`
+//   query ContactPage($language: String!) {
+//     locales: allLocale(
+//       filter: { ns: { in: ["common", "contact"] }, language: { eq: $language } }
+//     ) {
+//       edges {
+//         node {
+//           ns
+//           data
+//           language
+//         }
+//       }
+//     }
+//   }
+// `
+
 export default ContactPage

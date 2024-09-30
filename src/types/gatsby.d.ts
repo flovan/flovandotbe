@@ -703,6 +703,25 @@ type GatsbyImageDataQueryOperatorInput = {
   readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GatsbyImageData']>>>;
 };
 
+type GatsbyImageFormat =
+  | 'auto'
+  | 'avif'
+  | 'jpg'
+  | ''
+  | 'png'
+  | 'webp';
+
+type GatsbyImageLayout =
+  | 'constrained'
+  | 'fixed'
+  | 'fullWidth';
+
+type GatsbyImagePlaceholder =
+  | 'blurred'
+  | 'dominantColor'
+  | 'none'
+  | 'tracedSVG';
+
 type ImageCropFocus =
   | 17
   | 0
@@ -2355,6 +2374,16 @@ type GatsbyImageSharpFluid_withWebp_noBase64Fragment = { readonly aspectRatio: n
 type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string };
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
+
+type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type IndexPageQuery = { readonly photos: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly fluid: { readonly aspectRatio: number, readonly base64: string | null, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string } | null } | null } }> } };
+
+type InfoPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type InfoPageQuery = { readonly photos: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly fluid: { readonly aspectRatio: number, readonly base64: string | null, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string } | null } | null } }> } };
 
 
 }

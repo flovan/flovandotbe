@@ -137,7 +137,7 @@ const HomePage = props => {
 }
 
 export const query = graphql`
-  query {
+  query IndexPage {
     photos: allFile(
       filter: {
         extension: { regex: "/(png)/" }
@@ -162,6 +162,18 @@ export const query = graphql`
         }
       }
     }
+
+    #    locales: allLocale(
+    #      filter: { ns: { in: ["common", "index"] }, language: { eq: $language } }
+    #    ) {
+    #      edges {
+    #        node {
+    #          ns
+    #          data
+    #          language
+    #        }
+    #      }
+    #    }
   }
 `
 

@@ -1,4 +1,5 @@
-import { ShouldUpdateScrollArgs } from 'gatsby'
+import { ShouldUpdateScrollArgs, WrapPageElementBrowserArgs } from 'gatsby'
+import { PageContext } from 'gatsby/internal'
 
 import './src/styles/global.css'
 
