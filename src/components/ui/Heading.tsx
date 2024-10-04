@@ -1,6 +1,6 @@
 import { HTMLAttributes, HTMLProps, PropsWithChildren } from 'react'
 
-import mergeClassName from '../../lib/merge-class-name'
+import { mergeClassName } from '../../lib/class-name'
 import { PropsWithClassName } from '../../types/types'
 
 type HeadingProps = HTMLProps<HTMLHeadingElement> &
@@ -26,11 +26,10 @@ const Heading = ({
       baseClassName = 'text-flovan-lg font-normal'
       break
     case 2:
-      baseClassName =
-        'text-flovan-sm uppercase tracking-wider font-semibold title-line'
+      baseClassName = 'text-flovan-sm uppercase tracking-wider font-semibold'
       break
     case 3:
-      baseClassName = 'text-flovan-md font-normal'
+      baseClassName = 'text-flovan-md font-semibold'
       break
     default:
       throw new Error('Invalid Heading level. Can only use 1, 2 or 3.')

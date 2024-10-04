@@ -3,19 +3,21 @@ import { Link } from 'gatsby'
 import Blob from '../components/Blob'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
+import SEO from '../components/Seo'
 import Heading from '../components/ui/Heading'
 import { Icon } from '../components/ui/Icon'
+import PointyLink from '../components/ui/PointyLink'
 import WalletVisual from '../images/illustration-wallet.svg'
 
 const PricingPage = () => {
   return (
     <Layout>
       <Container className="relative">
-        <Heading level={2} as="h1" className="relative z-10">
-          What I will be charging you
+        <Heading level={1} className="visually-hidden">
+          My current rates
         </Heading>
-        <div className="relative z-20 grid grid-cols-1 gap-flovan-lg md:grid-cols-2 md:gap-flovan-base lg:gap-flovan-md">
-          <div className="prose">
+        <div className="relative z-10 grid grid-cols-1 items-center gap-y-flovan-md lg:grid-cols-3 lg:gap-flovan-md xl:grid-cols-2">
+          <div className="prose md:col-span-2 xl:col-span-1">
             <p className="text-flovan-lg font-normal">
               I prefer working on a time and materials basis, with a rate of
               €600/day or €75/hour
@@ -48,11 +50,11 @@ const PricingPage = () => {
               </li>
             </ul>
           </div>
-          <div className="z-10 flex justify-center md:absolute md:right-0 md:top-1/2 md:w-[calc((100%-8rem)/2)] md:-translate-y-1/2 lg:w-[calc((100%-12rem)/2)]">
-            <WalletVisual className="h-auto w-full max-w-80 md:max-w-max" />
+          <div className="relative flex justify-center">
+            <WalletVisual className="h-auto w-full max-w-96" />
             <Blob
-              id="web-apps-blob"
-              className="absolute left-1/2 top-1/4 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 md:top-1/2"
+              id="wallet-blob"
+              className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"
             />
           </div>
         </div>
@@ -61,11 +63,22 @@ const PricingPage = () => {
           className="absolute left-1/2 top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-2/3"
         />
       </Container>
+      <Container className="relative flex flex-col items-center">
+        <Heading level={1} as="p" className="mb-flovan-base">
+          Let&rsquo;s find out what I can do for you.
+        </Heading>
+        <PointyLink to="/contact">Tell me about your ideas</PointyLink>
+        <Blob
+          id="pricing-cta-blob"
+          className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[500px] -translate-x-1/2 -translate-y-1/2"
+          outline
+        />
+      </Container>
       <Container className="relative">
-        <Heading level={2} id="qa">
+        <Heading level={2} id="qa" className="title-line">
           Common questions about my pricing
         </Heading>
-        <div className="grid grid-cols-1 gap-flovan-base sm:grid-cols-2 lg:grid-cols-3 lg:gap-flovan-sm xl:gap-flovan-md">
+        <div className="grid grid-cols-1 gap-flovan-base sm:grid-cols-2 xl:grid-cols-3 xl:gap-flovan-md">
           <div className="prose">
             <Heading level={3}>How much will my project cost me?</Heading>
             <p>
@@ -126,6 +139,8 @@ const PricingPage = () => {
     </Layout>
   )
 }
+
+export const Head = () => <SEO title="Flovan — My rates" />
 
 // export const query = graphql`
 //   query PricingPage($language: String!) {

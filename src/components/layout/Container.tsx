@@ -1,6 +1,6 @@
 import { HTMLProps, PropsWithChildren } from 'react'
 
-import mergeClassName from '../../lib/merge-class-name'
+import { mergeClassName } from '../../lib/class-name'
 import { PropsWithClassName } from '../../types/types'
 
 const Container = ({

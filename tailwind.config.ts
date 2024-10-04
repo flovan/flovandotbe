@@ -48,12 +48,13 @@ const config: Config = {
       full: '9999px',
       default: '1.875rem',
     },
+    // Typescale h4-small from https://typescale.com (1.333 perfect)
     fontSize: {
-      'flovan-lg': ['2.25rem', { lineHeight: '2.5rem' }],
-      'flovan-md': ['1.875rem', { lineHeight: '2.25rem' }],
-      'flovan-base': ['1.25rem', { lineHeight: '1.75rem' }],
-      'flovan-sm': ['1rem', { lineHeight: '1.5rem' }],
-      'flovan-xs': ['0.75rem', { lineHeight: '1rem' }],
+      'flovan-lg': ['2.369rem', { lineHeight: '1.2' }],
+      'flovan-md': ['1.777rem', { lineHeight: '1.25' }],
+      'flovan-base': ['1.333rem', { lineHeight: '1.5' }],
+      'flovan-sm': ['1rem', { lineHeight: '1.5' }],
+      'flovan-xs': ['0.75rem', { lineHeight: '1.5' }],
     },
     fontWeight: {
       light: '300',
@@ -88,7 +89,7 @@ const config: Config = {
       spacing: {
         'flovan-xl': '16rem',
         'flovan-lg': '10rem',
-        'flovan-md': '6rem',
+        'flovan-md': '7rem',
         'flovan-base': '4rem',
         'flovan-sm': '1.5rem',
         'flovan-xs': '1rem',
@@ -96,6 +97,10 @@ const config: Config = {
       },
       borderWidth: {
         'flovan-stroke': '0.3125rem',
+      },
+      scale: {
+        115: '1.15',
+        130: '1.3',
       },
     },
   },

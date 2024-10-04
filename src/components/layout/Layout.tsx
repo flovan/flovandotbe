@@ -9,12 +9,12 @@ type LayoutProps = PropsWithChildren<{
 
 const Layout = ({ children, footerComponent }: LayoutProps) => (
   <div className="flex min-h-screen flex-col items-stretch">
-    <Header className="relative z-40 px-flovan-sm md:px-flovan-md" />
-    <main className="xl:gap-flovan-xl relative z-20 -mb-flovan-sm flex flex-1 flex-col gap-flovan-lg rounded-bl-default rounded-br-default bg-background px-flovan-sm py-flovan-md md:px-flovan-md md:py-flovan-lg">
+    <Header className="relative z-40 px-flovan-sm md:px-flovan-base lg:px-flovan-md" />
+    <main className="relative z-20 -mb-flovan-sm flex flex-1 flex-col gap-flovan-lg rounded-bl-default rounded-br-default bg-background px-flovan-sm py-flovan-md md:px-flovan-base md:pb-flovan-lg lg:px-flovan-md xl:gap-flovan-xl">
       {children}
     </main>
     <Footer
-      className="px-flovan-sm md:px-flovan-md"
+      className="px-flovan-sm md:px-flovan-base lg:px-flovan-md"
       topComponent={footerComponent}
     />
   </div>

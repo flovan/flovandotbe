@@ -41,7 +41,7 @@ const ProjectCardImage = () => {
 const ProjectCardTitle = () => {
   const { title } = useProjectCardContext()
   return (
-    <Heading level={3} className="mb-flovan-sm">
+    <Heading level={3} className="mb-flovan-xs">
       {title}
     </Heading>
   )

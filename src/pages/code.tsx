@@ -1,6 +1,7 @@
 import Blob from '../components/Blob'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
+import SEO from '../components/Seo'
 import Heading from '../components/ui/Heading'
 
 const CodePage = () => {
@@ -8,7 +9,7 @@ const CodePage = () => {
     <Layout>
       <Container className="relative grid grid-cols-1 gap-flovan-lg md:grid-cols-3 md:gap-flovan-base lg:gap-flovan-md">
         <div className="relative z-10 col-span-2">
-          <Heading level={2} as="h1">
+          <Heading level={2} as="h1" className="title-line">
             A look underneath the hood
           </Heading>
           <div className="prose">
@@ -18,7 +19,7 @@ const CodePage = () => {
             </p>
             <p>
               This website is statically generated with{' '}
-              <a href="https://www.gatsbyjs.com">Gatsby</a> and coded in
+              <a href="https://www.gatsbyjs.com">Gatsby</a> and coded in{' '}
               <a href="http://typescriptlang.org">Typescript</a> using{' '}
               <a href="https://react.dev">React</a>. I am pretty sure you could
               consider it to be a JAM stack setup. In its current form, it is a
@@ -70,6 +71,8 @@ const CodePage = () => {
     </Layout>
   )
 }
+
+export const Head = () => <SEO />
 
 // export const query = graphql`
 //   query CodePage($language: String!) {

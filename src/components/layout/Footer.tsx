@@ -2,7 +2,7 @@ import { ComponentType } from 'react'
 import { useTheme } from '@skagami/gatsby-plugin-dark-mode'
 import { Link } from 'gatsby'
 
-import mergeClassName from '../../lib/merge-class-name'
+import { mergeClassName } from '../../lib/class-name'
 import { PropsWithClassName } from '../../types/types'
 import Heading from '../ui/Heading'
 import Container from './Container'
@@ -28,11 +28,17 @@ const Footer = ({ className, topComponent: TopComponent }: FooterProps) => {
           )}
         >
           <Container>
-            <Heading level={2}>Get in touch</Heading>
+            <Heading level={2} className="title-line">
+              Get in touch
+            </Heading>
             <p className="text-flovan-md font-light">
-              Ready to talk about your project?{' '}
+              Ready to talk about your project?
+              <br />
               <a href="mailto:hello@flovan.be">Email me</a> or{' '}
-              <a href="#todo">schedule a meeting</a>.
+              <a href="https://calendar.app.google/W5pG4bLAJH9re5j37">
+                schedule a meeting
+              </a>
+              .
             </p>
           </Container>
         </div>

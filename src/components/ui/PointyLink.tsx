@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react'
 import { GatsbyLinkProps, Link } from 'gatsby'
 
 import PointyHandGraphic from '../../images/illustration-hand-point-right.svg'
-import mergeClassName from '../../lib/merge-class-name'
+import { mergeClassName } from '../../lib/class-name'
 
 type PointyLinkProps = Pick<GatsbyLinkProps<HTMLAnchorElement>, 'to'> &
   PropsWithChildren & {
@@ -18,9 +18,9 @@ const PointyLink = ({
   return (
     <Link
       className={mergeClassName(
-        'hover:text-on-primary-secondary group relative inline-flex h-14 items-center justify-center gap-10 pl-flovan-sm text-flovan-sm font-bold uppercase tracking-wider no-underline transition-colors last:mt-flovan-sm',
+        'group relative inline-flex h-14 items-center justify-center gap-10 pl-flovan-sm text-flovan-sm font-bold uppercase tracking-wider no-underline transition-colors hover:text-on-primary-secondary',
         // Styles for rounded outline around children
-        'hover:before:border-on-primary-secondary before:absolute before:left-0 before:right-24 before:h-full before:rounded-full before:border-flovan-stroke before:transition-all hover:before:scale-110',
+        'before:absolute before:left-0 before:right-24 before:h-full before:rounded-full before:border-flovan-stroke before:transition-all hover:before:scale-110 hover:before:border-on-primary-secondary',
         className,
       )}
       to={to}

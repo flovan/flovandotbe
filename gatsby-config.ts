@@ -49,8 +49,6 @@ const config: GatsbyConfig = {
         name: 'Flovan',
         short_name: 'Flovan',
         start_url: '/',
-        background_color: '#F957FF',
-        theme_color: '#F957FF',
         display: 'minimal-ui',
         icon: 'src/images/flovan-icon.png',
       },
