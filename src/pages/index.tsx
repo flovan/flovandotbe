@@ -10,8 +10,8 @@ import SEO from '../components/Seo'
 import Heading from '../components/ui/Heading'
 import PointyLink from '../components/ui/PointyLink'
 import ProjectCard from '../components/ui/ProjectCard'
-import HeroVisual from '../images/illustration-digital-touch.svg'
-import ClientsVisual from '../images/illustration-hands-hold-up-heart.svg'
+import { ReactComponent as HeroVisual } from '../images/illustration-digital-touch.svg'
+import { ReactComponent as ClientsVisual } from '../images/illustration-hands-hold-up-heart.svg'
 
 const HomePage = props => {
   const projects = getProjects(

@@ -12,8 +12,8 @@ import Heading from '../components/ui/Heading'
 import PointyLink from '../components/ui/PointyLink'
 import ProjectCard from '../components/ui/ProjectCard'
 import StepTabs from '../components/ui/StepTabs'
-import CommandmentsVisual from '../images/illustration-commandments.svg'
-import DesignDevelopmentVisual from '../images/illustration-design-development.svg'
+import { ReactComponent as CommandmentsVisual } from '../images/illustration-commandments.svg'
+import { ReactComponent as DesignDevelopmentVisual } from '../images/illustration-design-development.svg'
 
 const services = [
   {

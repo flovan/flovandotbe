@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { GatsbyLinkProps, Link } from 'gatsby'
 
-import PointyHandGraphic from '../../images/illustration-hand-point-right.svg'
+import { ReactComponent as PointyHandGraphic } from '../../images/illustration-hand-point-right.svg'
 import { mergeClassName } from '../../lib/class-name'
 
 type PointyLinkProps = Pick<GatsbyLinkProps<HTMLAnchorElement>, 'to'> &

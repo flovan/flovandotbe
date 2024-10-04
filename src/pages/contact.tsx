@@ -4,7 +4,7 @@ import Layout from '../components/layout/Layout'
 import SEO from '../components/Seo'
 import Heading from '../components/ui/Heading'
 import { Icon } from '../components/ui/Icon'
-import IdeaVisual from '../images/illustration-idea.svg'
+import { ReactComponent as IdeaVisual } from '../images/illustration-idea.svg'
 import { mergeClassName } from '../lib/class-name'
 import { PropsWithClassName } from '../types/types'
 

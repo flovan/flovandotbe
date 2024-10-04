@@ -53,14 +53,7 @@ const config: GatsbyConfig = {
         icon: 'src/images/flovan-icon.png',
       },
     },
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /images/,
-        },
-      },
-    },
+    'gatsby-plugin-svgr',
     '@skagami/gatsby-plugin-dark-mode',
     'gatsby-plugin-postcss',
   ],

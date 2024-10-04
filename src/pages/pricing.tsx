@@ -7,7 +7,7 @@ import SEO from '../components/Seo'
 import Heading from '../components/ui/Heading'
 import { Icon } from '../components/ui/Icon'
 import PointyLink from '../components/ui/PointyLink'
-import WalletVisual from '../images/illustration-wallet.svg'
+import { ReactComponent as WalletVisual } from '../images/illustration-wallet.svg'
 
 const PricingPage = () => {
   return (
