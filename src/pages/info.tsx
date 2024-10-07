@@ -5,9 +5,7 @@ import {
 } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
-import { IGatsbyImageData } from 'gatsby-plugin-image/dist/src/components/gatsby-image.browser'
 
-import { getProjects } from '../_temporay_data'
 import Blob from '../components/Blob'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -19,44 +17,38 @@ import ProjectCard from '../components/ui/ProjectCard'
 import StepTabs from '../components/ui/StepTabs'
 import { ReactComponent as CommandmentsVisual } from '../images/illustration-commandments.svg'
 import { ReactComponent as DesignDevelopmentVisual } from '../images/illustration-design-development.svg'
-
-const services = [
-  {
-    title: 'Design',
-    content: [
-      'We all like eye-catching and shiny things, but user experience and accessibility always need to be taken into consideration when designing for the browser.',
-      'I create <strong>timeless designs</strong> for your website, and easy to understand <strong>user interfaces</strong> for your web applications.',
-      'I can also help out with basic <strong>branding</strong> needs—a logo, a new font, or some fresh and dazzling colors.',
-    ],
-  },
-  {
-    title: 'Development',
-    content: [
-      'I create both simple static <strong>websites</strong>, as well as larger ones with a content management system. Translations? Check! Selling your products online? Check.',
-      'Your business might also need some custom built internal tools, or perhaps you are creating an in-house product. I am no stranger to working on larger <strong>web applications</strong>, and can help with full-stack development using modern and battle-tested technologies, deployed on a resilient infrastructure.',
-    ],
-  },
-  {
-    title: 'Content',
-    content: [
-      'Having a functional and good looking product only gets you so far. Your potential customers or users also need something to read and look at, something that inspires or informs them.',
-      'I work together closely with several talented freelancers that deliver top-notch <strong>photography, videography and copywriting</strong>. And it’s a small world, so any other requirements can be looked into.',
-    ],
-  },
-]
+import { Project } from '../types/types'
 
 const InfoPage = props => {
   const { t } = useTranslation('info')
 
-  const projects = getProjects(
-    props.data.photos.edges.reduce<Map<string, IGatsbyImageData>>(
-      (map, edge) => {
-        map.set(edge.node.name, getImage(edge.node))
-        return map
-      },
-      new Map(),
-    ),
-  ).map(data => ({ ...data, title: t(data.title) }))
+  const healthySolutionsImageData = props.data.photos.edges.find(
+    ({ node: { name } }) => name === 'project-healthysolutions',
+  )
+  const healthySolutionsImage = getImage(healthySolutionsImageData.node ?? null)
+  const vlaanderenImageData = props.data.photos.edges.find(
+    ({ node: { name } }) => name === 'project-vlaanderen',
+  )
+  const vlaanderenImage = getImage(vlaanderenImageData.node ?? null)
+
+  const projects = [
+    healthySolutionsImage === undefined
+      ? null
+      : {
+          title: t('A corporate website for HealthySolutions'),
+          image: healthySolutionsImage,
+          tags: ['Design', 'Development', 'CMS', 'Copywriting'],
+        },
+    vlaanderenImage === undefined
+      ? null
+      : {
+          title: t(
+            'Automated data consolidation for the new Vlaanderen.be website',
+          ),
+          image: vlaanderenImage,
+          tags: ['Development', 'AWS', 'IoT'],
+        },
+  ].filter(entry => entry !== null) as Array<Project>
 
   return (
     <Layout>
@@ -98,20 +90,57 @@ const InfoPage = props => {
             </p>
           </div>
           <div className="flex flex-col gap-flovan-xs lg:col-span-2">
-            {services.map(({ title, content }) => (
-              <Details
-                key={title}
-                title={title}
-                className="[&:not(:last-child)]:-mb-px"
-              >
-                {content.map((paragraph, index) => (
-                  <p
-                    key={title + index}
-                    dangerouslySetInnerHTML={{ __html: paragraph }}
-                  />
-                ))}
-              </Details>
-            ))}
+            <Details title={t('Design')} className="-mb-px">
+              <Trans i18nKey="design-service-content">
+                <p>
+                  We all like eye-catching and shiny things, but user experience
+                  and accessibility always need to be taken into consideration
+                  when designing for the browser.
+                </p>
+                <p>
+                  I create <strong>timeless designs</strong> for your website,
+                  and easy to understand <strong>user interfaces</strong> for
+                  your web applications.
+                </p>
+                <p>
+                  I can also help out with basic <strong>branding</strong>{' '}
+                  needs—a logo, a new font, or some fresh and dazzling colors.
+                </p>
+              </Trans>
+            </Details>
+            <Details title={t('Development')} className="-mb-px">
+              <Trans i18nKey="development-service-content">
+                <p>
+                  I create both simple static <strong>websites</strong>, as well
+                  as larger ones with a content management system. Translations?
+                  Check! Selling your products online? Check.
+                </p>
+                <p>
+                  Your business might also need some custom built internal
+                  tools, or perhaps you are creating an in-house product. I am
+                  no stranger to working on larger{' '}
+                  <strong>web applications</strong>, and can help with
+                  full-stack development using modern and battle-tested
+                  technologies, deployed on a resilient infrastructure.
+                </p>
+              </Trans>
+            </Details>
+            <Details title={t('Content')}>
+              <Trans i18nKey="content-service-content">
+                <p>
+                  Having a functional and good looking product only gets you so
+                  far. Your potential customers or users also need something to
+                  read and look at, something that inspires or informs them.
+                </p>
+                <p>
+                  I work together closely with several talented freelancers that
+                  deliver top-notch{' '}
+                  <strong>photography, videography and copywriting</strong>. And
+                  it’s a small world, so any other requirements can be looked
+                  into.
+                </p>
+              </Trans>
+            </Details>
           </div>
         </div>
       </Container>
@@ -245,7 +274,7 @@ const InfoPage = props => {
             </p>
           </div>
           <div className="prose">
-            <Heading level={3}>{t('What technologies do you use?')}</Heading>
+            <Heading level={3}>{t('Which technologies do you use?')}</Heading>
             <p>
               {t(
                 'Project management and documentation will be shared with you on a dedicated Notion space. Design will either be done in Figma or Affinity Designer. For development, I will typically write Typescript code in a combination of React with either Gatsby, Next.js or Remix. Tailwind is my go-to styling library.',
@@ -290,7 +319,7 @@ const InfoPage = props => {
         <div className="relative z-10 grid grid-cols-1 gap-y-flovan-base md:grid-cols-2 md:gap-flovan-sm lg:gap-flovan-md">
           {projects.map((project, index) => (
             <ProjectCard
-              key={project.id}
+              key={project.title}
               project={project}
               className={
                 index % 2 === 0 ? 'md:scroll-slide-down' : 'md:scroll-slide-up'
@@ -344,7 +373,7 @@ export const query = graphql`
     }
 
     locales: allLocale(
-      filter: { ns: { in: ["info"] }, language: { eq: $language } }
+      filter: { ns: { in: ["common", "info"] }, language: { eq: $language } }
     ) {
       edges {
         node {

@@ -1,4 +1,5 @@
 import { PropsWithChildren, useEffect, useRef } from 'react'
+import { Link, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 
 import { joinClassName } from '../../lib/class-name'
 import { PropsWithClassName } from '../../types/types'
@@ -6,18 +7,20 @@ import { PropsWithClassName } from '../../types/types'
 type StepTabLinkProps = PropsWithChildren<PropsWithClassName<{ href: string }>>
 
 const StepTabLink = ({ href, className, children }: StepTabLinkProps) => (
-  <a
-    href={href}
+  <Link
+    to={href}
     className={joinClassName(
       'py-flovan-xxs flex rounded-full border border-highlight px-flovan-xs text-flovan-sm font-semibold uppercase tracking-wider no-underline transition-colors aria-selected:bg-highlight',
       className,
     )}
   >
     {children}
-  </a>
+  </Link>
 )
 
 const StepTabs = ({ className }: PropsWithClassName) => {
+  const { t } = useTranslation('info')
+
   const rootElementRef = useRef<HTMLDivElement | null>(null)
   const tabListElementRef = useRef<HTMLUListElement | null>(null)
   const tabElementsRef = useRef<Array<HTMLAnchorElement>>([])
@@ -135,9 +138,9 @@ const StepTabs = ({ className }: PropsWithClassName) => {
       >
         <li className="flex items-center gap-flovan-xs [&.active]:flex-1">
           <StepTabLink href="#step-1" className="group peer">
-            <span>Step 1</span>
+            <span>{t('Step 1')}</span>
             <span className="hidden group-aria-selected:block">
-              : Chit-chat
+              : {t('Chit-chat')}
             </span>
           </StepTabLink>
           <div
@@ -148,9 +151,9 @@ const StepTabs = ({ className }: PropsWithClassName) => {
         </li>
         <li className="flex items-center gap-flovan-xs [&.active]:flex-1">
           <StepTabLink href="#step-2" className="group peer">
-            <span>Step 2</span>
+            <span>{t('Step 2')}</span>
             <span className="hidden group-aria-selected:block">
-              : Handshake
+              : {t('Handshake')}
             </span>
           </StepTabLink>
           <div
@@ -161,32 +164,32 @@ const StepTabs = ({ className }: PropsWithClassName) => {
         </li>
         <li className="flex items-center gap-flovan-xs [&.active]:flex-1">
           <StepTabLink href="#step-3" className="group peer">
-            <span>Step 3</span>
-            <span className="hidden group-aria-selected:block">: Delivery</span>
+            <span>{t('Step 3')}</span>
+            <span className="hidden group-aria-selected:block">
+              : {t('Delivery')}
+            </span>
           </StepTabLink>
         </li>
       </ul>
       <section id="step-1" className="prose">
         <p>
-          Everything starts with clearly defined goals—both yours and those of
-          your potential customers. We can translate those goals into a digital
-          strategy that defines the scope of what needs to be designed and
-          built.
+          {t(
+            'Everything starts with clearly defined goals—both yours and those of your potential customers. We can translate those goals into a digital strategy that defines the scope of what needs to be designed and built.',
+          )}
         </p>
       </section>
       <section id="step-2" className="prose">
         <p>
-          With the strategy in hand, I can draft a quote with a target date on
-          which the realisation will start, and when the delivery of the end
-          result could be. All I need now, is your agreement and any required
-          assets.
+          {t(
+            'With the strategy in hand, I can draft a quote with a target date on which the realisation will start, and when the delivery of the end result could be. All I need now, is your agreement and any required assets.',
+          )}
         </p>
       </section>
       <section id="step-3" className="prose">
         <p>
-          Once the production kicks off, an initial design phase will be
-          followed by development, then testing and validation, and finally, the
-          delivery—with an obligatory celebration!
+          {t(
+            'Once the production kicks off, an initial design phase will be followed by development, then testing and validation, and finally, the delivery—with an obligatory celebration!',
+          )}
         </p>
       </section>
     </div>

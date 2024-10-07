@@ -1,5 +1,4 @@
 import { Link, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
-import { graphql } from 'gatsby'
 
 import { PropsWithClassName } from '../../types/types'
 import { Icon } from '../ui/Icon'
@@ -38,21 +37,5 @@ const Header = ({ className }: PropsWithClassName) => {
     </header>
   )
 }
-
-export const query = graphql`
-  query CodePage($language: String!) {
-    locales: allLocale(
-      filter: { ns: { in: ["common"] }, language: { eq: $language } }
-    ) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-  }
-`
 
 export default Header

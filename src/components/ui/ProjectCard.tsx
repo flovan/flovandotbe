@@ -1,8 +1,7 @@
 import { createContext, PropsWithChildren, useContext } from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-import { Project } from '../../_temporay_data'
-import { PropsWithClassName } from '../../types/types'
+import { Project, PropsWithClassName } from '../../types/types'
 import Heading from './Heading'
 
 const ProjectCardContext = createContext<Project | undefined>(undefined)

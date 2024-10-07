@@ -1,9 +1,7 @@
 import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
-import { IGatsbyImageData } from 'gatsby-plugin-image/dist/src/components/gatsby-image.browser'
 
-import { getProjects } from '../_temporay_data'
 import Blob from '../components/Blob'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -13,19 +11,36 @@ import PointyLink from '../components/ui/PointyLink'
 import ProjectCard from '../components/ui/ProjectCard'
 import { ReactComponent as HeroVisual } from '../images/illustration-digital-touch.svg'
 import { ReactComponent as ClientsVisual } from '../images/illustration-hands-hold-up-heart.svg'
+import { Project } from '../types/types'
 
 const HomePage = props => {
   const { t } = useTranslation('home')
 
-  const projects = getProjects(
-    props.data.photos.edges.reduce<Map<string, IGatsbyImageData>>(
-      (map, edge) => {
-        map.set(edge.node.name, getImage(edge.node))
-        return map
-      },
-      new Map(),
-    ),
-  ).map(data => ({ ...data, title: t(data.title) }))
+  const actesImageData = props.data.photos.edges.find(
+    ({ node: { name } }) => name === 'project-actes',
+  )
+  const actesImage = getImage(actesImageData.node ?? null)
+  const tpvisionImageData = props.data.photos.edges.find(
+    ({ node: { name } }) => name === 'project-tpvision',
+  )
+  const tpvisionImage = getImage(tpvisionImageData.node ?? null)
+
+  const projects = [
+    actesImage === undefined
+      ? null
+      : {
+          title: t('A new website for Actes'),
+          image: actesImage,
+          tags: ['Design', 'Development', 'CMS', 'Copywriting'],
+        },
+    tpvisionImage === undefined
+      ? null
+      : {
+          title: t('A display management platform for TP Vision'),
+          image: tpvisionImage,
+          tags: ['Development', 'AWS', 'IoT'],
+        },
+  ].filter(entry => entry !== null) as Array<Project>
 
   return (
     <Layout>
@@ -113,7 +128,7 @@ const HomePage = props => {
         <div className="relative z-10 grid grid-cols-1 gap-y-flovan-base md:grid-cols-2 md:gap-flovan-sm lg:gap-flovan-md">
           {projects.map((project, index) => (
             <ProjectCard
-              key={project.id}
+              key={project.title}
               project={project}
               className={
                 index % 2 === 0 ? 'md:scroll-slide-down' : 'md:scroll-slide-up'
@@ -164,7 +179,7 @@ export const query = graphql`
     }
 
     locales: allLocale(
-      filter: { ns: { in: ["home"] }, language: { eq: $language } }
+      filter: { ns: { in: ["common", "home"] }, language: { eq: $language } }
     ) {
       edges {
         node {

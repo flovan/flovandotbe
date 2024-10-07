@@ -39,15 +39,13 @@ const PricingPage = () => {
             </p>
             <ul>
               <li>
-                (t
-                {
-                  'Fixed - price projects are of course up for discussion. An estimate will be made based on the rates mentioned above.'
-                }
-                )
+                {t(
+                  'Fixed-price projects are of course up for discussion. An estimate will be made based on the rates mentioned above.',
+                )}
               </li>
               <li>
                 {t(
-                  'Long - term consultancy projects with an existing team get a guaranteed working day of up to 8 hours to allow for proper collaboration.',
+                  'Long-term consultancy projects with an existing team get a guaranteed working day of up to 8 hours to allow for proper collaboration.',
                 )}
               </li>
               <li>
@@ -169,7 +167,7 @@ export const Head = () => {
 export const query = graphql`
   query PricingPage($language: String!) {
     locales: allLocale(
-      filter: { ns: { in: ["pricing"] }, language: { eq: $language } }
+      filter: { ns: { in: ["common", "pricing"] }, language: { eq: $language } }
     ) {
       edges {
         node {

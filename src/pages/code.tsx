@@ -90,14 +90,14 @@ const CodePage = () => {
 }
 
 export const Head = () => {
-  const { t } = useTranslation('contact')
+  const { t } = useTranslation('code')
   return <SEO title={`Flovan — ${t('Code')}`} />
 }
 
 export const query = graphql`
   query CodePage($language: String!) {
     locales: allLocale(
-      filter: { ns: { in: ["code"] }, language: { eq: $language } }
+      filter: { ns: { in: ["common", "code"] }, language: { eq: $language } }
     ) {
       edges {
         node {
