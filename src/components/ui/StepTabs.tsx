@@ -168,10 +168,10 @@ const StepTabs = ({ className }: PropsWithClassName) => {
       </ul>
       <section id="step-1" className="prose">
         <p>
-          Everything starts with clearly defined goals&mdash;both yours and
-          those of your potential customers. We can translate those goals into a
-          digital strategy that defines the scope of what needs to be designed
-          and built.
+          Everything starts with clearly defined goals—both yours and those of
+          your potential customers. We can translate those goals into a digital
+          strategy that defines the scope of what needs to be designed and
+          built.
         </p>
       </section>
       <section id="step-2" className="prose">
@@ -186,7 +186,7 @@ const StepTabs = ({ className }: PropsWithClassName) => {
         <p>
           Once the production kicks off, an initial design phase will be
           followed by development, then testing and validation, and finally, the
-          delivery&mdash;with an obligatory celebration!
+          delivery—with an obligatory celebration!
         </p>
       </section>
     </div>

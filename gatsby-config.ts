@@ -18,31 +18,31 @@ const config: GatsbyConfig = {
         name: 'images',
       },
     },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     path: `${__dirname}/src/locales`,
-    //     name: 'locale',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/locales`,
+        name: 'locale',
+      },
+    },
     `gatsby-plugin-image`,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    // {
-    //   resolve: '@herob191/gatsby-plugin-react-i18next',
-    //   options: {
-    //     localeJsonSourceName: 'locale', // set through `gatsby-source-filesystem`, see above
-    //     languages: ['nl', 'en'],
-    //     defaultLanguage: 'nl',
-    //     siteUrl: 'http://localhost:8000/',
-    //     generateDefaultLanguagePage: true,
-    //     i18nextOptions: {
-    //       interpolation: {
-    //         escapeValue: false,
-    //       },
-    //     },
-    //   },
-    // },
+    {
+      resolve: '@herob191/gatsby-plugin-react-i18next',
+      options: {
+        localeJsonSourceName: 'locale', // set through `gatsby-source-filesystem`, see above
+        languages: ['nl', 'en'],
+        defaultLanguage: 'nl',
+        siteUrl: 'http://localhost:8000/',
+        generateDefaultLanguagePage: true,
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false,
+          },
+        },
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

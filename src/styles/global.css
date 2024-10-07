@@ -143,12 +143,14 @@
    }
 
    .scroll-slide-up {
-     animation: projectCardSlideUp linear;
+     animation-name: projectCardSlideUp;
+     animation-timing-function: linear;
      animation-timeline: scroll(y);
    }
 
    .scroll-slide-down {
-     animation: projectCardSlideDown linear;
+     animation-name: projectCardSlideDown;
+     animation-timing-function: linear;
      animation-timeline: scroll(y);
    }
 

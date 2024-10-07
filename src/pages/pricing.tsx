@@ -1,4 +1,9 @@
-import { Link } from 'gatsby'
+import {
+  Link,
+  Trans,
+  useTranslation,
+} from '@herob191/gatsby-plugin-react-i18next'
+import { graphql } from 'gatsby'
 
 import Blob from '../components/Blob'
 import Container from '../components/layout/Container'
@@ -10,43 +15,52 @@ import PointyLink from '../components/ui/PointyLink'
 import { ReactComponent as WalletVisual } from '../images/illustration-wallet.svg'
 
 const PricingPage = () => {
+  const { t } = useTranslation('pricing')
+
   return (
     <Layout>
       <Container className="relative">
         <Heading level={1} className="visually-hidden">
-          My current rates
+          {t('My current rates')}
         </Heading>
         <div className="relative z-10 grid grid-cols-1 items-center gap-y-flovan-md lg:grid-cols-3 lg:gap-flovan-md xl:grid-cols-2">
           <div className="prose md:col-span-2 xl:col-span-1">
             <p className="text-flovan-lg font-normal">
-              I prefer working on a time and materials basis, with a rate of
-              €600/day or €75/hour
-              <sup>
-                <a href="#footnote-1">
-                  <small>*</small>
-                </a>
-              </sup>
-              .
+              <Trans>
+                I prefer working on a time and materials basis, with a rate of
+                €600/day or €75/hour
+                <sup>
+                  <a href="#footnote-1">
+                    <small>*</small>
+                  </a>
+                </sup>
+                .
+              </Trans>
             </p>
             <ul>
               <li>
-                Fixed-price projects are of course up for discussion. An
-                estimate will be made based on the rates mentioned above.
+                (t
+                {
+                  'Fixed - price projects are of course up for discussion. An estimate will be made based on the rates mentioned above.'
+                }
+                )
               </li>
               <li>
-                Long-term consultancy projects with an existing team get a
-                guaranteed working day of up to 8 hours to allow for proper
-                collaboration.
+                {t(
+                  'Long - term consultancy projects with an existing team get a guaranteed working day of up to 8 hours to allow for proper collaboration.',
+                )}
               </li>
               <li>
-                Start-ups and projects for social good can try persuading me to
-                offer a discounted rate.{' '}
-                <Icon
-                  name="emoji-blink"
-                  width={28}
-                  height={28}
-                  className="inline-flex"
-                />
+                <Trans>
+                  Start-ups and projects for social good can try persuading me
+                  to offer a discounted rate.{' '}
+                  <Icon
+                    name="emoji-blink"
+                    width={28}
+                    height={28}
+                    className="inline-flex"
+                  />
+                </Trans>
               </li>
             </ul>
           </div>
@@ -65,9 +79,9 @@ const PricingPage = () => {
       </Container>
       <Container className="relative flex flex-col items-center">
         <Heading level={1} as="p" className="mb-flovan-base">
-          Let&rsquo;s find out what I can do for you.
+          {t('Let’s find out what I can do for you.')}
         </Heading>
-        <PointyLink to="/contact">Tell me about your ideas</PointyLink>
+        <PointyLink to="/contact">{t('Tell me about your ideas')}</PointyLink>
         <Blob
           id="pricing-cta-blob"
           className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[500px] -translate-x-1/2 -translate-y-1/2"
@@ -76,53 +90,60 @@ const PricingPage = () => {
       </Container>
       <Container className="relative">
         <Heading level={2} id="qa" className="title-line">
-          Common questions about my pricing
+          {t('Common questions about my pricing')}
         </Heading>
         <div className="grid grid-cols-1 gap-flovan-base md:grid-cols-2 lg:gap-flovan-md xl:grid-cols-3">
           <div className="prose">
-            <Heading level={3}>How much will my project cost me?</Heading>
-            <p>
-              Very fair question, but without a defined scope, a tough question
-              to answer. Designing and developing a website for example can
-              start at around €3000{' '}
-              <sup>
-                <a href="#footnote-1">
-                  <small>*</small>
-                </a>
-              </sup>
-              . If you already have something in mind,{' '}
-              <Link to="/contact">send me some details</Link> and I will do my
-              best to give you a ballpark figure.
-            </p>
-          </div>
-          <div className="prose">
             <Heading level={3}>
-              What are my reoccurring costs for a website?
+              {t('How much will my project cost me?')}
             </Heading>
             <p>
-              The bare minimum cost is{' '}
-              <strong>
-                65 euros
+              <Trans>
+                Very fair question, but without a defined scope, a tough
+                question to answer. Designing and developing a website for
+                example can start at around €3000{' '}
                 <sup>
                   <a href="#footnote-1">
                     <small>*</small>
                   </a>
-                </sup>{' '}
-                per month
-              </strong>
-              . This includes your hosting and a guaranteed fixing of any issues
-              with your website within 24 hours. Other recurring fees could
-              include the costs of a domain name, higher traffic hosting, or for
-              example a subscription to a third-party service.
+                </sup>
+                . If you already have something in mind,{' '}
+                <Link to="/contact">send me some details</Link> and I will do my
+                best to give you a ballpark figure.
+              </Trans>
             </p>
           </div>
           <div className="prose">
-            <Heading level={3}>Do you work with other freelancers?</Heading>
+            <Heading level={3}>
+              {t('What are my reoccurring costs for a website?')}
+            </Heading>
             <p>
-              A different professional&mdash;say, a photographer or
-              copywriter&mdash;might need to step in, depending on the scope.
-              The costs will be communicated transparently in advance, and their
-              work will be listed separately on your invoice.
+              <Trans>
+                The bare minimum cost is{' '}
+                <strong>
+                  65 euros
+                  <sup>
+                    <a href="#footnote-1">
+                      <small>*</small>
+                    </a>
+                  </sup>{' '}
+                  per month
+                </strong>
+                . This includes your hosting and a guaranteed fixing of any
+                issues with your website within 24 hours. Other recurring fees
+                could include the costs of a domain name, higher traffic
+                hosting, or for example a subscription to a third-party service.
+              </Trans>
+            </p>
+          </div>
+          <div className="prose">
+            <Heading level={3}>
+              {t('Do you work with other freelancers?')}
+            </Heading>
+            <p>
+              {t(
+                'A different professional—say, a photographer or copywriter—might need to step in, depending on the scope. The costs will be communicated transparently in advance, and their work will be listed separately on your invoice.',
+              )}
             </p>
           </div>
         </div>
@@ -133,29 +154,32 @@ const PricingPage = () => {
       </Container>
       <Container>
         <p className="text-flovan-sm">
-          <sup id="footnote-1">*</sup> Mentioned price is without VAT.
+          <sup id="footnote-1">*</sup> {t('Mentioned price is without VAT.')}
         </p>
       </Container>
     </Layout>
   )
 }
 
-export const Head = () => <SEO title="Flovan — My rates" />
+export const Head = () => {
+  const { t } = useTranslation('pricing')
+  return <SEO title={`Flovan — ${t('My rates')}`} />
+}
 
-// export const query = graphql`
-//   query PricingPage($language: String!) {
-//     locales: allLocale(
-//       filter: { ns: { in: ["common", "pricing"] }, language: { eq: $language } }
-//     ) {
-//       edges {
-//         node {
-//           ns
-//           data
-//           language
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query PricingPage($language: String!) {
+    locales: allLocale(
+      filter: { ns: { in: ["pricing"] }, language: { eq: $language } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`
 
 export default PricingPage

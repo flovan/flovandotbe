@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react'
-import { GatsbyLinkProps, Link } from 'gatsby'
+import { Link } from '@herob191/gatsby-plugin-react-i18next'
+import { GatsbyLinkProps } from 'gatsby'
 
 type MenuLinkProps = Pick<GatsbyLinkProps<HTMLAnchorElement>, 'to'> &
   PropsWithChildren

@@ -1,3 +1,6 @@
+import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
+import { graphql } from 'gatsby'
+
 import Blob from '../components/Blob'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -9,6 +12,8 @@ import { mergeClassName } from '../lib/class-name'
 import { PropsWithClassName } from '../types/types'
 
 const SeeAlsoBlock = ({ className }: PropsWithClassName) => {
+  const { t } = useTranslation('contact')
+
   return (
     <div
       className={mergeClassName(
@@ -18,15 +23,19 @@ const SeeAlsoBlock = ({ className }: PropsWithClassName) => {
     >
       <Container>
         <Heading level={2} className="title-line">
-          Also check out
+          {t('Also check out')}
         </Heading>
         <p className="prose">
           <ul>
             <li>
-              The <a href="/pricing">rates</a> for which I work
+              <Trans>
+                The <a href="/pricing">rates</a> for which I work
+              </Trans>
             </li>
             <li>
-              What you can expect when <a href="/info">working with me</a>
+              <Trans>
+                What you can expect when <a href="/info">working with me</a>
+              </Trans>
             </li>
           </ul>
         </p>
@@ -36,17 +45,20 @@ const SeeAlsoBlock = ({ className }: PropsWithClassName) => {
 }
 
 const ContactPage = props => {
+  const { t } = useTranslation('contact')
+
   return (
     <Layout footerComponent={SeeAlsoBlock}>
       <Container className="relative z-10 grid grid-cols-1 items-center gap-y-flovan-md lg:grid-cols-3 lg:gap-flovan-md xl:grid-cols-2">
         <div className="relative z-20 md:col-span-2 xl:col-span-1">
           <Heading level={2} className="visually-hidden">
-            Get in touch
+            {t('Get in touch')}
           </Heading>
           <div className="prose">
             <p className="text-flovan-lg font-normal">
-              Tell me about your vision or your needs, and let&rsquo;s take it
-              from there.
+              {t(
+                'Tell me about your vision or your needs, and let’s take it from there.',
+              )}
             </p>
             <ul className="text-flovan-md">
               <li>
@@ -54,7 +66,7 @@ const ContactPage = props => {
               </li>
               <li>
                 <a href="https://calendar.app.google/W5pG4bLAJH9re5j37">
-                  Schedule a meeting
+                  {t('Schedule a meeting')}
                 </a>
               </li>
             </ul>
@@ -74,7 +86,7 @@ const ContactPage = props => {
       </Container>
       <Container className="relative z-10">
         <Heading level={2} className="title-line">
-          Connect with me
+          {t('Connect with me')}
         </Heading>
         <div className="flex flex-col gap-flovan-base md:flex-row">
           <a
@@ -104,12 +116,15 @@ const ContactPage = props => {
   )
 }
 
-export const Head = () => <SEO title="Flovan — Get in touch" />
+export const Head = () => {
+  const { t } = useTranslation('contact')
+  return <SEO title={`Flovan — ${t('Get in touch')}`} />
+}
 
-/* export const query = graphql`
-  query ContactPage {
+export const query = graphql`
+  query ContactPage($language: String!) {
     locales: allLocale(
-      filter: { ns: { in: ["common", "contact"] }, language: { eq: $language } }
+      filter: { ns: { in: ["contact"] }, language: { eq: $language } }
     ) {
       edges {
         node {
@@ -120,6 +135,6 @@ export const Head = () => <SEO title="Flovan — Get in touch" />
       }
     }
   }
-`*/
+`
 
 export default ContactPage
