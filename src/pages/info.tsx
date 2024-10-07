@@ -139,7 +139,7 @@ const InfoPage = props => {
         </div>
         <Blob
           id="info-services-blob"
-          className="scale-y-130 scale-x-115 absolute left-0 top-0 h-full w-full transition-all"
+          className="absolute left-0 top-0 h-full w-full scale-x-115 scale-y-130 transition-all"
           type="rectangle"
         />
       </Container>
@@ -196,7 +196,7 @@ const InfoPage = props => {
         <Heading level={2} className="title-line">
           Common questions
         </Heading>
-        <div className="relative z-10 grid grid-cols-1 gap-flovan-base sm:grid-cols-2 lg:grid-cols-3 lg:gap-flovan-sm xl:gap-flovan-md">
+        <div className="relative z-10 grid grid-cols-1 gap-flovan-base md:grid-cols-2 lg:gap-flovan-md xl:grid-cols-3">
           <div className="prose">
             <Heading level={3}>What is the typical flow of a project?</Heading>
             <p>

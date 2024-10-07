@@ -78,7 +78,7 @@ const PricingPage = () => {
         <Heading level={2} id="qa" className="title-line">
           Common questions about my pricing
         </Heading>
-        <div className="grid grid-cols-1 gap-flovan-base sm:grid-cols-2 xl:grid-cols-3 xl:gap-flovan-md">
+        <div className="grid grid-cols-1 gap-flovan-base md:grid-cols-2 lg:gap-flovan-md xl:grid-cols-3">
           <div className="prose">
             <Heading level={3}>How much will my project cost me?</Heading>
             <p>
