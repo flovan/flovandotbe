@@ -77,7 +77,11 @@ const PricingPage = () => {
         />
       </Container>
       <Container className="relative flex flex-col items-center">
-        <Heading level={1} as="p" className="mb-flovan-base">
+        <Heading
+          level={1}
+          as="p"
+          className="mb-flovan-base text-center sm:text-left"
+        >
           {t('Let’s find out what I can do for you.')}
         </Heading>
         <PointyLink to="/contact">{t('Tell me about your ideas')}</PointyLink>

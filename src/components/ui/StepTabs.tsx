@@ -10,7 +10,7 @@ const StepTabLink = ({ href, className, children }: StepTabLinkProps) => (
   <Link
     to={href}
     className={joinClassName(
-      'flex rounded-full border border-highlight px-flovan-xs text-flovan-sm font-semibold uppercase tracking-wider no-underline transition-colors aria-selected:bg-highlight',
+      'max-xs:flex-1 flex rounded-full border border-highlight px-flovan-xs text-flovan-sm font-semibold uppercase tracking-wider no-underline transition-colors aria-selected:bg-highlight',
       className,
     )}
   >
@@ -134,17 +134,17 @@ const StepTabs = ({ className }: PropsWithClassName) => {
     <div ref={rootElementRef} className={className}>
       <ul
         ref={tabListElementRef}
-        className="gap-flovan-xxs mb-flovan-sm flex items-center sm:gap-flovan-xs"
+        className="xs:flex-row xs:items-center xs:gap-flovan-xxs mb-flovan-sm flex flex-col items-stretch gap-flovan-xs sm:gap-flovan-xs"
       >
         <li className="flex items-center gap-flovan-xs [&.active]:flex-1">
           <StepTabLink href="#step-1" className="group peer">
             <span>{t('Step 1')}</span>
-            <span className="hidden group-aria-selected:block">
+            <span className="max-xs:block hidden group-aria-selected:block">
               : {t('Chit-chat')}
             </span>
           </StepTabLink>
           <div
-            className="relative h-px flex-1 flex-grow-[0.0001] bg-primary transition-all duration-300 after:absolute after:right-px after:top-1/2 after:h-3 after:w-3 after:-translate-y-1/2 after:rotate-45 after:border after:border-b-0 after:border-l-0 after:border-primary peer-aria-selected:flex-grow sm:peer-[:not([aria-selected])]:after:-translate-x-1/3"
+            className="xs:block relative hidden h-px flex-1 flex-grow-[0.0001] bg-primary transition-all duration-300 after:absolute after:right-px after:top-1/2 after:h-3 after:w-3 after:-translate-y-1/2 after:rotate-45 after:border after:border-b-0 after:border-l-0 after:border-primary peer-aria-selected:flex-grow sm:peer-[:not([aria-selected])]:after:-translate-x-1/3"
             role="presentation"
             aria-hidden
           />
@@ -152,12 +152,12 @@ const StepTabs = ({ className }: PropsWithClassName) => {
         <li className="flex items-center gap-flovan-xs [&.active]:flex-1">
           <StepTabLink href="#step-2" className="group peer">
             <span>{t('Step 2')}</span>
-            <span className="hidden group-aria-selected:block">
+            <span className="max-xs:block hidden group-aria-selected:block">
               : {t('Handshake')}
             </span>
           </StepTabLink>
           <div
-            className="relative h-px flex-1 flex-grow-[0.0001] bg-primary transition-all duration-300 after:absolute after:right-px after:top-1/2 after:h-3 after:w-3 after:-translate-y-1/2 after:rotate-45 after:border after:border-b-0 after:border-l-0 after:border-primary peer-aria-selected:flex-grow sm:peer-[:not([aria-selected])]:after:-translate-x-1/3"
+            className="xs:block relative hidden h-px flex-1 flex-grow-[0.0001] bg-primary transition-all duration-300 after:absolute after:right-px after:top-1/2 after:h-3 after:w-3 after:-translate-y-1/2 after:rotate-45 after:border after:border-b-0 after:border-l-0 after:border-primary peer-aria-selected:flex-grow sm:peer-[:not([aria-selected])]:after:-translate-x-1/3"
             role="presentation"
             aria-hidden
           />
@@ -165,7 +165,7 @@ const StepTabs = ({ className }: PropsWithClassName) => {
         <li className="flex items-center gap-flovan-xs [&.active]:flex-1">
           <StepTabLink href="#step-3" className="group peer">
             <span>{t('Step 3')}</span>
-            <span className="hidden group-aria-selected:block">
+            <span className="max-xs:block hidden group-aria-selected:block">
               : {t('Delivery')}
             </span>
           </StepTabLink>

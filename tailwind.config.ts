@@ -103,6 +103,9 @@ const config: Config = {
         115: '1.15',
         130: '1.3',
       },
+      screens: {
+        xs: '500px',
+      },
     },
   },
 }
