@@ -2,6 +2,7 @@ import { ComponentType } from 'react'
 import {
   Link,
   Trans,
+  useI18next,
   useTranslation,
 } from '@herob191/gatsby-plugin-react-i18next'
 import { useTheme } from '@skagami/gatsby-plugin-dark-mode'
@@ -17,10 +18,20 @@ type FooterProps = PropsWithClassName<{
 
 const Footer = ({ className, topComponent: TopComponent }: FooterProps) => {
   const { t } = useTranslation('common')
+  const { language, changeLanguage } = useI18next()
+
   const [theme, toggleTheme] = useTheme()
 
   const handleThemeChangeClick = () => {
     toggleTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
+  const handleLanguageChangeClick = () => {
+    if (language === 'nl') {
+      void changeLanguage('en')
+    } else {
+      void changeLanguage('nl')
+    }
   }
 
   return (
@@ -58,7 +69,7 @@ const Footer = ({ className, topComponent: TopComponent }: FooterProps) => {
           className,
         )}
       >
-        <Container className="flex flex-col items-center justify-between gap-flovan-sm pb-flovan-sm pt-[3.375rem] text-pink-200 dark:text-blue-600 sm:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-flovan-sm pb-flovan-sm pt-[3.375rem] text-pink-200 dark:text-blue-600 lg:flex-row">
           <p className="text-flovan-xs uppercase tracking-wider">
             Flovan Consulting BV — BE 0744.678.106
             <br />
@@ -73,6 +84,12 @@ const Footer = ({ className, topComponent: TopComponent }: FooterProps) => {
               onClick={handleThemeChangeClick}
             >
               {theme === 'dark' ? t('Light mode') : t('Dark mode')}
+            </button>
+            <button
+              className="text-flovan-sm underline"
+              onClick={handleLanguageChangeClick}
+            >
+              {t('Vertaal naar Nederlands')}
             </button>
           </div>
         </Container>
