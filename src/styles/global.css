@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/SpaceGrotesk.woff2') format('woff2');
+}
+
+@layer base {
+  :root {
+    --font-sans: 'Space Grotesk';
+  }
+
+  body {
+    @apply font-sans text-base font-normal;
+  }
+
+ /* h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-4xl;
+  }
+
+  h3 {
+    @apply text-3xl;
+  }
+
+  h4 {
+    @apply text-2xl;
+  }
+
+  h5 {
+    @apply text-xl;
+  }
+
+  h6 {
+    @apply text-lg;
+  }*/
+
+  /*small {
+    @apply text-small;
+  }*/
+
+  a {
+    @apply underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2rem;
+  }
+}
+
+/* @layer utilities {} */
