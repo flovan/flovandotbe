@@ -93,14 +93,14 @@ const InfoPage = props => {
             <Details title={t('Design')} className="-mb-px">
               <Trans i18nKey="design-service-content">
                 <p>
-                  We all like eye-catching and shiny things, but user experience
-                  and accessibility always need to be taken into consideration
-                  when designing for the browser.
-                </p>
-                <p>
                   I create <strong>timeless designs</strong> for your website,
                   and easy to understand <strong>user interfaces</strong> for
                   your web applications.
+                </p>
+                <p>
+                  We all like eye-catching and shiny things, but user experience
+                  and accessibility always need to be taken into consideration
+                  when designing for the browser.
                 </p>
                 <p>
                   I can also help out with basic <strong>branding</strong>{' '}
@@ -189,7 +189,7 @@ const InfoPage = props => {
           type="rectangle"
         />
       </Container>
-      <Container className="relative grid grid-cols-1 items-center gap-y-flovan-base md:grid-cols-2 md:gap-flovan-base lg:gap-flovan-md">
+      <Container className="relative grid grid-cols-1 items-center gap-y-flovan-base md:grid-cols-2 md:gap-flovan-base lg:grid-cols-3 lg:gap-flovan-md">
         <div className="relative flex justify-center">
           <CommandmentsVisual className="h-auto w-full max-w-96" />
           <Blob
@@ -197,7 +197,7 @@ const InfoPage = props => {
             className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"
           />
         </div>
-        <div className="relative z-10">
+        <div className="relative z-10 lg:col-span-2">
           <Heading level={2} className="title-line relative z-10">
             {t('Ethics and values')}
           </Heading>
@@ -228,6 +228,7 @@ const InfoPage = props => {
                   'Advise the use of privacy-invasive analytics, tracking pixels or on-by-default cookies.',
                 )}
               </li>
+              <li>{t('Implement on-by-default cookies.')}</li>
             </ul>
           </div>
         </div>
@@ -248,16 +249,6 @@ const InfoPage = props => {
           {t('Common questions')}
         </Heading>
         <div className="relative z-10 grid grid-cols-1 gap-flovan-base md:grid-cols-2 lg:gap-flovan-md xl:grid-cols-3">
-          <div className="prose">
-            <Heading level={3}>
-              {t('What is the typical flow of a project?')}
-            </Heading>
-            <p>
-              {t(
-                'We start by defining the project scope and identifying the requirements. I’ll then send you a quote and an estimated timeline. From there on, we’ll head into the design phase and then move onto development. And finally, the delivery of the end result—accompanied by a hand-over, if needed.',
-              )}
-            </p>
-          </div>
           <div className="prose">
             <Heading level={3}>
               {t('Will I get any support afterwards?')}

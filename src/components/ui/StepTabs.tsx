@@ -10,7 +10,7 @@ const StepTabLink = ({ href, className, children }: StepTabLinkProps) => (
   <Link
     to={href}
     className={joinClassName(
-      'py-flovan-xxs flex rounded-full border border-highlight px-flovan-xs text-flovan-sm font-semibold uppercase tracking-wider no-underline transition-colors aria-selected:bg-highlight',
+      'flex rounded-full border border-highlight px-flovan-xs text-flovan-sm font-semibold uppercase tracking-wider no-underline transition-colors aria-selected:bg-highlight',
       className,
     )}
   >
@@ -134,7 +134,7 @@ const StepTabs = ({ className }: PropsWithClassName) => {
     <div ref={rootElementRef} className={className}>
       <ul
         ref={tabListElementRef}
-        className="mb-flovan-sm flex items-center gap-flovan-xs"
+        className="gap-flovan-xxs mb-flovan-sm flex items-center sm:gap-flovan-xs"
       >
         <li className="flex items-center gap-flovan-xs [&.active]:flex-1">
           <StepTabLink href="#step-1" className="group peer">
@@ -144,7 +144,7 @@ const StepTabs = ({ className }: PropsWithClassName) => {
             </span>
           </StepTabLink>
           <div
-            className="relative h-px flex-1 flex-grow-[0.0001] bg-primary transition-all duration-300 after:absolute after:right-px after:top-1/2 after:h-3 after:w-3 after:-translate-y-1/2 after:rotate-45 after:border after:border-b-0 after:border-l-0 after:border-primary peer-[:not([aria-selected])]:after:translate-x-1/3 peer-aria-selected:flex-grow"
+            className="relative h-px flex-1 flex-grow-[0.0001] bg-primary transition-all duration-300 after:absolute after:right-px after:top-1/2 after:h-3 after:w-3 after:-translate-y-1/2 after:rotate-45 after:border after:border-b-0 after:border-l-0 after:border-primary peer-aria-selected:flex-grow sm:peer-[:not([aria-selected])]:after:-translate-x-1/3"
             role="presentation"
             aria-hidden
           />
@@ -157,7 +157,7 @@ const StepTabs = ({ className }: PropsWithClassName) => {
             </span>
           </StepTabLink>
           <div
-            className="relative h-px flex-1 flex-grow-[0.0001] bg-primary transition-all duration-300 after:absolute after:right-px after:top-1/2 after:h-3 after:w-3 after:-translate-y-1/2 after:rotate-45 after:border after:border-b-0 after:border-l-0 after:border-primary peer-[:not([aria-selected])]:after:translate-x-1/3 peer-aria-selected:flex-grow"
+            className="relative h-px flex-1 flex-grow-[0.0001] bg-primary transition-all duration-300 after:absolute after:right-px after:top-1/2 after:h-3 after:w-3 after:-translate-y-1/2 after:rotate-45 after:border after:border-b-0 after:border-l-0 after:border-primary peer-aria-selected:flex-grow sm:peer-[:not([aria-selected])]:after:-translate-x-1/3"
             role="presentation"
             aria-hidden
           />

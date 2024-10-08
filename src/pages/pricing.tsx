@@ -26,16 +26,17 @@ const PricingPage = () => {
         <div className="relative z-10 grid grid-cols-1 items-center gap-y-flovan-md lg:grid-cols-3 lg:gap-flovan-md xl:grid-cols-2">
           <div className="prose md:col-span-2 xl:col-span-1">
             <p className="text-flovan-lg font-normal">
-              <Trans>
-                I prefer working on a time and materials basis, with a rate of
-                €600/day or €75/hour
-                <sup>
-                  <a href="#footnote-1">
-                    <small>*</small>
-                  </a>
-                </sup>
-                .
+              <Trans i18nKey="rate">
+                I work with a rate of <strong>€600/day</strong> or{' '}
+                <strong>€75/hour</strong>, preferably on a time and materials
+                basis
               </Trans>
+              <sup>
+                <a href="#footnote-1">
+                  <small>*</small>
+                </a>
+              </sup>
+              .
             </p>
             <ul>
               <li>
