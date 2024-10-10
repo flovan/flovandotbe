@@ -67,6 +67,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-svgr',
     '@skagami/gatsby-plugin-dark-mode',
     'gatsby-plugin-postcss',
+    'gatsby-plugin-webpack-bundle-analyser-v2',
   ],
 }
 
