@@ -65,7 +65,7 @@ const HomePage = props => {
           type="rectangle"
         />
       </Container>
-      <Container className="relative z-10 grid grid-cols-1 items-center gap-flovan-lg md:grid-cols-2 md:gap-flovan-base lg:gap-flovan-md">
+      <Container className="relative z-10 grid grid-cols-1 items-center gap-flovan-lg lg:grid-cols-2 lg:gap-flovan-md">
         <div>
           <Heading level={2} className="title-line">
             {t('In a nutshell')}

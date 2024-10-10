@@ -64,7 +64,7 @@ const InfoPage = props => {
         />
       </Container>
       <Container className="relative">
-        <div className="relative z-10 grid grid-cols-1 gap-y-flovan-base lg:grid-cols-3 lg:gap-flovan-base lg:gap-flovan-md">
+        <div className="relative z-10 grid grid-cols-1 gap-y-flovan-base lg:grid-cols-3 lg:gap-flovan-base xl:gap-flovan-md">
           <div>
             <Heading level={2} className="title-line relative z-10">
               {t('Overview of my services')}
