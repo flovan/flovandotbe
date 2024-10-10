@@ -17,31 +17,18 @@ import { Project } from '../types/types'
 const HomePage = props => {
   const { t } = useTranslation('home')
 
-  const actesImageData = props.data.photos.edges.find(
-    ({ node: { name } }) => name === 'project-actes',
-  )
-  const actesImage = getImage(actesImageData.node ?? null)
-  const tpvisionImageData = props.data.photos.edges.find(
-    ({ node: { name } }) => name === 'project-tpvision',
-  )
-  const tpvisionImage = getImage(tpvisionImageData.node ?? null)
-
   const projects = [
-    actesImage === undefined
-      ? null
-      : {
-          title: t('A new website for Actes'),
-          image: actesImage,
-          tags: ['Design', 'Development', 'CMS', 'Copywriting'],
-        },
-    tpvisionImage === undefined
-      ? null
-      : {
-          title: t('A display management platform for TP Vision'),
-          image: tpvisionImage,
-          tags: ['Development', 'AWS', 'IoT'],
-        },
-  ].filter(entry => entry !== null) as Array<Project>
+    {
+      title: t('A new website for Actes'),
+      image: getImage(props.data.actesImage.childImageSharp),
+      tags: ['Design', 'Development', 'CMS', 'Copywriting'],
+    },
+    {
+      title: t('A display management platform for TP Vision'),
+      image: getImage(props.data.tpvisionImage.childImageSharp),
+      tags: ['Development', 'AWS', 'IoT'],
+    },
+  ] as Array<Project>
 
   return (
     <Layout>
@@ -159,20 +146,19 @@ export const Head = () => (
 
 export const query = graphql`
   query IndexPage($language: String!) {
-    photos: allFile(
-      filter: {
-        extension: { regex: "/(png)/" }
-        name: { regex: "/(project-)(actes)|(tpvision)/" }
+    actesImage: file(relativePath: { eq: "project-actes.png" }) {
+      id
+      name
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED)
       }
-    ) {
-      edges {
-        node {
-          id
-          name
-          childImageSharp {
-            gatsbyImageData(placeholder: BLURRED)
-          }
-        }
+    }
+
+    tpvisionImage: file(relativePath: { eq: "project-tpvision.png" }) {
+      id
+      name
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
 

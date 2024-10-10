@@ -23,33 +23,20 @@ import { Project } from '../types/types'
 const InfoPage = props => {
   const { t } = useTranslation('info')
 
-  const healthySolutionsImageData = props.data.photos.edges.find(
-    ({ node: { name } }) => name === 'project-healthysolutions',
-  )
-  const healthySolutionsImage = getImage(healthySolutionsImageData.node ?? null)
-  const vlaanderenImageData = props.data.photos.edges.find(
-    ({ node: { name } }) => name === 'project-vlaanderen',
-  )
-  const vlaanderenImage = getImage(vlaanderenImageData.node ?? null)
-
   const projects = [
-    healthySolutionsImage === undefined
-      ? null
-      : {
-          title: t('A corporate website for HealthySolutions'),
-          image: healthySolutionsImage,
-          tags: ['Design', 'Development', 'CMS', 'Copywriting'],
-        },
-    vlaanderenImage === undefined
-      ? null
-      : {
-          title: t(
-            'Automated data consolidation for the new Vlaanderen.be website',
-          ),
-          image: vlaanderenImage,
-          tags: ['Development', 'AWS', 'IoT'],
-        },
-  ].filter(entry => entry !== null) as Array<Project>
+    {
+      title: t('A corporate website for HealthySolutions'),
+      image: getImage(props.data.healthySolutionsImage.childImageSharp),
+      tags: ['Design', 'Development', 'CMS', 'Copywriting'],
+    },
+    {
+      title: t(
+        'Automated data consolidation for the new Vlaanderen.be website',
+      ),
+      image: getImage(props.data.vlaanderenImage.childImageSharp),
+      tags: ['Development', 'AWS', 'IoT'],
+    },
+  ] as Array<Project>
 
   return (
     <Layout>
@@ -348,20 +335,21 @@ export const Head = () => {
 
 export const query = graphql`
   query InfoPage($language: String!) {
-    photos: allFile(
-      filter: {
-        extension: { regex: "/(png)/" }
-        name: { regex: "/(project-)(vlaanderen)|(healthysolutions)/" }
+    vlaanderenImage: file(relativePath: { eq: "project-vlaanderen.png" }) {
+      id
+      name
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
       }
+    }
+
+    healthySolutionsImage: file(
+      relativePath: { eq: "project-healthysolutions.png" }
     ) {
-      edges {
-        node {
-          id
-          name
-          childImageSharp {
-            gatsbyImageData(placeholder: BLURRED)
-          }
-        }
+      id
+      name
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
       }
     }
 
