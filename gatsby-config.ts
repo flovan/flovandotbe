@@ -33,7 +33,6 @@ const config: GatsbyConfig = {
           placeholder: 'blurred',
           quality: 80,
           breakpoints: [500, 640, 768, 1024, 1280, 1536],
-          // backgroundColor: 'transparent',
         },
       },
     },
@@ -67,7 +66,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-svgr',
     '@skagami/gatsby-plugin-dark-mode',
     'gatsby-plugin-postcss',
-    'gatsby-plugin-webpack-bundle-analyser-v2',
+    // 'gatsby-plugin-webpack-bundle-analyser-v2',
   ],
 }
 

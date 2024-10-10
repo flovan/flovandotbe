@@ -1,3 +1,4 @@
+import { createRoot } from 'react-dom/client'
 import { ShouldUpdateScrollArgs } from 'gatsby'
 
 import './src/styles/global.css'
@@ -37,4 +38,13 @@ export const shouldUpdateScroll = ({
   }
 
   return false
+}
+
+// Prevent multiple issues with React hydration
+// See https://github.com/gatsbyjs/gatsby/discussions/36232#discussioncomment-6145675
+export const replaceHydrateFunction = () => {
+  return (element, container) => {
+    const root = createRoot(container)
+    root.render(element)
+  }
 }
