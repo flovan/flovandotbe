@@ -6,6 +6,7 @@ import {
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
+import Assets from '../components/Assets'
 import Blob from '../components/Blob'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -337,7 +338,12 @@ const InfoPage = props => {
 
 export const Head = () => {
   const { t } = useTranslation('info')
-  return <SEO title={`Flovan — ${t('What I do')}`} />
+  return (
+    <>
+      <SEO title={`Flovan — ${t('What I do')}`} />
+      <Assets />
+    </>
+  )
 }
 
 export const query = graphql`
@@ -353,9 +359,7 @@ export const query = graphql`
           id
           name
           childImageSharp {
-            gatsbyImageData(
-              placeholder: BLURRED
-            )
+            gatsbyImageData(placeholder: BLURRED)
           }
         }
       }

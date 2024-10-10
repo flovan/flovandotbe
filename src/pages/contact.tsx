@@ -1,6 +1,7 @@
 import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 
+import Assets from '../components/Assets'
 import Blob from '../components/Blob'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -118,7 +119,12 @@ const ContactPage = props => {
 
 export const Head = () => {
   const { t } = useTranslation('contact')
-  return <SEO title={`Flovan — ${t('Get in touch')}`} />
+  return (
+    <>
+      <SEO title={`Flovan — ${t('Get in touch')}`} />
+      <Assets />
+    </>
+  )
 }
 
 export const query = graphql`

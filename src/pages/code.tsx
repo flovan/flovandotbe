@@ -1,6 +1,7 @@
 import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 
+import Assets from '../components/Assets'
 import Blob from '../components/Blob'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -91,7 +92,12 @@ const CodePage = () => {
 
 export const Head = () => {
   const { t } = useTranslation('code')
-  return <SEO title={`Flovan — ${t('Code')}`} />
+  return (
+    <>
+      <SEO title={`Flovan — ${t('Code')}`} />
+      <Assets />
+    </>
+  )
 }
 
 export const query = graphql`

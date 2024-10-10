@@ -2,6 +2,7 @@ import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
+import Assets from '../components/Assets'
 import Blob from '../components/Blob'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -149,7 +150,12 @@ const HomePage = props => {
   )
 }
 
-export const Head = () => <SEO />
+export const Head = () => (
+  <>
+    <SEO />
+    <Assets />
+  </>
+)
 
 export const query = graphql`
   query IndexPage($language: String!) {
@@ -164,9 +170,7 @@ export const query = graphql`
           id
           name
           childImageSharp {
-            gatsbyImageData(
-              placeholder: BLURRED
-            )
+            gatsbyImageData(placeholder: BLURRED)
           }
         }
       }
