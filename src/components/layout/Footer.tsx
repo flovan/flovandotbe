@@ -69,7 +69,7 @@ const Footer = ({ className, topComponent: TopComponent }: FooterProps) => {
           className,
         )}
       >
-        <Container className="flex flex-col items-center justify-between gap-flovan-sm pb-flovan-sm pt-[3.375rem] text-pink-200 dark:text-blue-600 lg:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-flovan-sm pb-flovan-sm pt-[3.375rem] text-pink-200 dark:text-white lg:flex-row">
           <p className="text-flovan-xs uppercase tracking-wider">
             Flovan Consulting BV — BE 0744.678.106
             <br />
