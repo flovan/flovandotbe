@@ -25,9 +25,20 @@ const config: GatsbyConfig = {
         name: 'locale',
       },
     },
-    `gatsby-plugin-image`,
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        defaults: {
+          formats: ['auto', 'webp'],
+          placeholder: 'blurred',
+          quality: 80,
+          breakpoints: [500, 640, 768, 1024, 1280, 1536],
+          // backgroundColor: 'transparent',
+        },
+      },
+    },
     'gatsby-transformer-sharp',
+    `gatsby-plugin-image`,
     {
       resolve: '@herob191/gatsby-plugin-react-i18next',
       options: {

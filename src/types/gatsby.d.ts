@@ -2562,14 +2562,14 @@ type IndexPageQueryVariables = Exact<{
 }>;
 
 
-type IndexPageQuery = { readonly photos: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly fluid: { readonly aspectRatio: number, readonly base64: string | null, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string } | null } | null } }> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: { readonly ns: string | null, readonly data: string | null, readonly language: string | null } }> } };
+type IndexPageQuery = { readonly photos: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: { readonly ns: string | null, readonly data: string | null, readonly language: string | null } }> } };
 
 type InfoPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-type InfoPageQuery = { readonly photos: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly fluid: { readonly aspectRatio: number, readonly base64: string | null, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string } | null } | null } }> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: { readonly ns: string | null, readonly data: string | null, readonly language: string | null } }> } };
+type InfoPageQuery = { readonly photos: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: { readonly ns: string | null, readonly data: string | null, readonly language: string | null } }> } };
 
 type PricingPageQueryVariables = Exact<{
   language: Scalars['String'];

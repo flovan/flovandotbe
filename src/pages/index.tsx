@@ -166,13 +166,7 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED
-              width: 915
-              backgroundColor: "transparent"
             )
-            fluid(maxWidth: 915, quality: 80) {
-              aspectRatio
-              ...GatsbyImageSharpFluid_withWebp
-            }
           }
         }
       }
