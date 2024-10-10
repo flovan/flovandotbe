@@ -1,4 +1,4 @@
-import { RenderBodyArgs } from 'gatsby'
+import { RenderBodyArgs, Script } from 'gatsby'
 
 export const onRenderBody = ({ setHeadComponents }: RenderBodyArgs) => {
   setHeadComponents([
@@ -15,6 +15,11 @@ export const onRenderBody = ({ setHeadComponents }: RenderBodyArgs) => {
       as="image"
       crossOrigin="anonymous"
       key="svgSprite"
+    />,
+    <Script
+      src="https://cloud.umami.is/script.js"
+      data-website-id="6023396a-5ef0-4d77-8a57-50330d3af849"
+      key="umamiAnalytics"
     />,
   ])
 }
