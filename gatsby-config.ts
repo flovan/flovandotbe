@@ -4,7 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Flovan',
     siteUrl: 'https://flovan.be',
-    description: 'Web design and development studio',
+    description: 'Webdesign & development studio',
   },
   graphqlTypegen: {
     typesOutputPath: `./src/types/gatsby.d.ts`,

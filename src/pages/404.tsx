@@ -5,11 +5,10 @@ import {
 } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 
-import Assets from '../components/Assets'
 import Blob from '../components/Blob'
+import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
-import SEO from '../components/Seo'
 import Heading from '../components/ui/Heading'
 
 const NotFoundPage = () => {
@@ -32,24 +31,14 @@ const NotFoundPage = () => {
             </p>
           </div>
         </div>
-        <Blob
-          id="404-blob"
-          className="absolute left-full top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/3"
-        />
       </Container>
     </Layout>
   )
 }
 
-export const Head = () => {
-  const { t } = useTranslation('404')
-  return (
-    <>
-      <SEO title={`Flovan — ${t('Page not found')}`} />
-      <Assets />
-    </>
-  )
-}
+export const Head = ({ data }) => (
+  <FlovanHead namespace="404" localeEdges={data.locales.edges} />
+)
 
 export const query = graphql`
   query CodePage($language: String!) {

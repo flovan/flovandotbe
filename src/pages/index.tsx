@@ -2,11 +2,10 @@ import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
-import Assets from '../components/Assets'
 import Blob from '../components/Blob'
+import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
-import SEO from '../components/Seo'
 import Heading from '../components/ui/Heading'
 import PointyLink from '../components/ui/PointyLink'
 import ProjectCard from '../components/ui/ProjectCard'
@@ -137,11 +136,8 @@ const HomePage = props => {
   )
 }
 
-export const Head = () => (
-  <>
-    <SEO />
-    <Assets />
-  </>
+export const Head = ({ data }) => (
+  <FlovanHead namespace="home" localeEdges={data.locales.edges} />
 )
 
 export const query = graphql`

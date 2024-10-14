@@ -6,11 +6,10 @@ import {
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
-import Assets from '../components/Assets'
 import Blob from '../components/Blob'
+import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
-import SEO from '../components/Seo'
 import Details from '../components/ui/Details'
 import Heading from '../components/ui/Heading'
 import PointyLink from '../components/ui/PointyLink'
@@ -48,6 +47,12 @@ const InfoPage = props => {
                 'Meaningful web products that are conversion-focused, brand-accurate & people-friendly.',
               )}
             </Heading>
+            <p className="mb-flovan-sm">
+              <Trans>
+                Here’s what you can expect after you’ve{' '}
+                <Link to="/contact">contacted</Link> me for your project:
+              </Trans>
+            </p>
             <StepTabs />
           </div>
           <div className="relative flex justify-center self-stretch">
@@ -91,9 +96,16 @@ const InfoPage = props => {
                   when designing for the browser.
                 </p>
                 <p>
-                  I can also help out with basic <strong>branding</strong>{' '}
-                  needs—a logo, a new font, or some fresh and dazzling colors.
+                  I can also help out with <strong>branding</strong> needs—a
+                  logo, a new font, or some fresh and dazzling colors. I’ll keep
+                  in mind that you might need some print work done in the
+                  future,by ensuring that your brand colors don’t look like mud
+                  on paper.
                 </p>
+                <p>
+                  Need <em>actual</em> print work? let me know!
+                </p>
+                <p></p>
               </Trans>
             </Details>
             <Details title={t('Development')} className="-mb-px">
@@ -323,15 +335,9 @@ const InfoPage = props => {
   )
 }
 
-export const Head = () => {
-  const { t } = useTranslation('info')
-  return (
-    <>
-      <SEO title={`Flovan — ${t('What I do')}`} />
-      <Assets />
-    </>
-  )
-}
+export const Head = ({ data }) => (
+  <FlovanHead namespace="info" localeEdges={data.locales.edges} />
+)
 
 export const query = graphql`
   query InfoPage($language: String!) {

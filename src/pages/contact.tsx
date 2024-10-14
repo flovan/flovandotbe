@@ -1,11 +1,10 @@
 import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 
-import Assets from '../components/Assets'
 import Blob from '../components/Blob'
+import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
-import SEO from '../components/Seo'
 import Heading from '../components/ui/Heading'
 import { Icon } from '../components/ui/Icon'
 import { ReactComponent as IdeaVisual } from '../images/illustration-idea.svg'
@@ -26,7 +25,7 @@ const SeeAlsoBlock = ({ className }: PropsWithClassName) => {
         <Heading level={2} className="title-line">
           {t('Also check out')}
         </Heading>
-        <p className="prose">
+        <div className="prose">
           <ul>
             <li>
               <Trans>
@@ -39,7 +38,7 @@ const SeeAlsoBlock = ({ className }: PropsWithClassName) => {
               </Trans>
             </li>
           </ul>
-        </p>
+        </div>
       </Container>
     </div>
   )
@@ -117,15 +116,9 @@ const ContactPage = props => {
   )
 }
 
-export const Head = () => {
-  const { t } = useTranslation('contact')
-  return (
-    <>
-      <SEO title={`Flovan — ${t('Get in touch')}`} />
-      <Assets />
-    </>
-  )
-}
+export const Head = ({ data }) => (
+  <FlovanHead namespace="contact" localeEdges={data.locales.edges} />
+)
 
 export const query = graphql`
   query ContactPage($language: String!) {
