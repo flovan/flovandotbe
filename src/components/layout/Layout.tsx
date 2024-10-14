@@ -16,7 +16,7 @@ const Layout = ({ children, footerComponent }: LayoutProps) => {
   }, [language])
 
   return (
-    <div className="flex min-h-screen max-w-[100vw] flex-col items-stretch overflow-x-hidden pt-flovan-sm">
+    <div className="flex min-h-screen max-w-[100vw] flex-col items-stretch pt-flovan-sm max-sm:overflow-x-hidden">
       <Header className="relative z-40 px-flovan-sm md:px-flovan-base lg:px-flovan-md" />
       <main className="relative z-20 -mb-flovan-sm flex flex-1 flex-col gap-flovan-lg rounded-bl-default rounded-br-default bg-background px-flovan-sm py-flovan-md md:px-flovan-base md:pb-flovan-lg lg:px-flovan-md xl:gap-flovan-xl">
         {children}
