@@ -179,14 +179,14 @@ const StepTabs = ({ className }: PropsWithClassName) => {
           )}
         </p>
       </section>
-      <section id="step-2" className="prose">
+      <section id="step-2" className="prose" hidden>
         <p>
           {t(
             'With the strategy in hand, I can draft a quote with a target date on which the realisation will start, and when the delivery of the end result could be. All I need now, is your agreement and any required assets.',
           )}
         </p>
       </section>
-      <section id="step-3" className="prose">
+      <section id="step-3" className="prose" hidden>
         <p>
           {t(
             'Once the production kicks off, an initial design phase will be followed by development, then testing and validation, and finally, the delivery—with an obligatory celebration!',
