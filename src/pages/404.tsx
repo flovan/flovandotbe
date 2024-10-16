@@ -5,7 +5,6 @@ import {
 } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 
-import Blob from '../components/Blob'
 import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'

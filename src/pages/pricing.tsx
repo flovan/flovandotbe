@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import {
   Link,
   Trans,
@@ -5,7 +6,6 @@ import {
 } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 
-import Blob from '../components/Blob'
 import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -13,6 +13,9 @@ import Heading from '../components/ui/Heading'
 import { Icon } from '../components/ui/Icon'
 import PointyLink from '../components/ui/PointyLink'
 import { ReactComponent as WalletVisual } from '../images/illustration-wallet.svg'
+
+// eslint-disable-next-line
+const Blob = lazy(() => import('../components/Blob'))
 
 const PricingPage = () => {
   const { t } = useTranslation('pricing')
@@ -65,16 +68,20 @@ const PricingPage = () => {
           </div>
           <div className="relative flex justify-center">
             <WalletVisual className="h-auto w-full max-w-96" />
-            <Blob
-              id="wallet-blob"
-              className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"
-            />
+            <Suspense fallback={null}>
+              <Blob
+                id="wallet-blob"
+                className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"
+              />
+            </Suspense>
           </div>
         </div>
-        <Blob
-          id="pricing-hero-blob"
-          className="absolute left-1/2 top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-2/3"
-        />
+        <Suspense fallback={null}>
+          <Blob
+            id="pricing-hero-blob"
+            className="absolute left-1/2 top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-2/3"
+          />
+        </Suspense>
       </Container>
       <Container className="relative flex flex-col items-center">
         <Heading
@@ -85,11 +92,13 @@ const PricingPage = () => {
           {t('Let’s find out what I can do for you.')}
         </Heading>
         <PointyLink to="/contact">{t('Tell me about your ideas')}</PointyLink>
-        <Blob
-          id="pricing-cta-blob"
-          className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[500px] -translate-x-1/2 -translate-y-1/2"
-          outline
-        />
+        <Suspense fallback={null}>
+          <Blob
+            id="pricing-cta-blob"
+            className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[500px] -translate-x-1/2 -translate-y-1/2"
+            outline
+          />
+        </Suspense>
       </Container>
       <Container className="relative">
         <Heading level={2} id="qa" className="title-line">
@@ -150,10 +159,12 @@ const PricingPage = () => {
             </p>
           </div>
         </div>
-        <Blob
-          id="pricing-questions-blob"
-          className="absolute right-full top-1/2 -z-[1] h-[900px] w-[900px] -translate-y-2/3 translate-x-1/2"
-        />
+        <Suspense fallback={null}>
+          <Blob
+            id="pricing-questions-blob"
+            className="absolute right-full top-1/2 -z-[1] h-[900px] w-[900px] -translate-y-2/3 translate-x-1/2"
+          />
+        </Suspense>
       </Container>
       <Container>
         <p className="text-flovan-sm">

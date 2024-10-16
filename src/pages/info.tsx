@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import {
   Link,
   Trans,
@@ -6,7 +7,6 @@ import {
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
-import Blob from '../components/Blob'
 import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -18,6 +18,9 @@ import StepTabs from '../components/ui/StepTabs'
 import { ReactComponent as CommandmentsVisual } from '../images/illustration-commandments.svg'
 import { ReactComponent as DesignDevelopmentVisual } from '../images/illustration-design-development.svg'
 import { Project } from '../types/types'
+
+// eslint-disable-next-line
+const Blob = lazy(() => import('../components/Blob'))
 
 const InfoPage = props => {
   const { t } = useTranslation('info')
@@ -57,16 +60,20 @@ const InfoPage = props => {
           </div>
           <div className="relative flex justify-center self-stretch">
             <DesignDevelopmentVisual className="h-auto w-full max-w-96" />
-            <Blob
-              id="design-development-blob"
-              className="absolute left-1/2 top-1/2 z-[-1] h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2"
-            />
+            <Suspense fallback={null}>
+              <Blob
+                id="design-development-blob"
+                className="absolute left-1/2 top-1/2 z-[-1] h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2"
+              />
+            </Suspense>
           </div>
         </div>
-        <Blob
-          id="info-hero-blob"
-          className="absolute left-0 top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/3"
-        />
+        <Suspense fallback={null}>
+          <Blob
+            id="info-hero-blob"
+            className="absolute left-0 top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/3"
+          />
+        </Suspense>
       </Container>
       <Container className="relative">
         <div className="relative z-10 grid grid-cols-1 gap-y-flovan-base lg:grid-cols-3 lg:gap-flovan-base xl:gap-flovan-md">
@@ -183,19 +190,23 @@ const InfoPage = props => {
             </p>
           </div>
         </div>
-        <Blob
-          id="info-services-blob"
-          className="absolute left-0 top-0 h-full w-full scale-x-115 scale-y-130 transition-all"
-          type="rectangle"
-        />
+        <Suspense fallback={null}>
+          <Blob
+            id="info-services-blob"
+            className="absolute left-0 top-0 h-full w-full scale-x-115 scale-y-130 transition-all"
+            type="rectangle"
+          />
+        </Suspense>
       </Container>
       <Container className="relative grid grid-cols-1 items-center gap-y-flovan-base md:grid-cols-2 md:gap-flovan-base lg:grid-cols-3 lg:gap-flovan-md">
         <div className="relative flex justify-center">
           <CommandmentsVisual className="h-auto w-full max-w-96" />
-          <Blob
-            id="commandments-blob"
-            className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"
-          />
+          <Suspense fallback={null}>
+            <Blob
+              id="commandments-blob"
+              className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"
+            />
+          </Suspense>
         </div>
         <div className="relative z-10 lg:col-span-2">
           <Heading level={2} className="title-line relative z-10">
@@ -242,11 +253,13 @@ const InfoPage = props => {
           {t('Let’s create something beautiful.')}
         </Heading>
         <PointyLink to="/contact">{t('Tell me about your ideas')}</PointyLink>
-        <Blob
-          id="info-cta-blob"
-          className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[500px] -translate-x-1/2 -translate-y-1/2"
-          outline
-        />
+        <Suspense fallback={null}>
+          <Blob
+            id="info-cta-blob"
+            className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[500px] -translate-x-1/2 -translate-y-1/2"
+            outline
+          />
+        </Suspense>
       </Container>
       <Container className="relative">
         <Heading level={2} className="title-line">
@@ -302,10 +315,12 @@ const InfoPage = props => {
             </p>
           </div>
         </div>
-        <Blob
-          id="info-questions-blob"
-          className="absolute right-full top-1/2 -z-[1] h-[900px] w-[900px] -translate-y-1/2 translate-x-1/2"
-        />
+        <Suspense fallback={null}>
+          <Blob
+            id="info-questions-blob"
+            className="absolute right-full top-1/2 -z-[1] h-[900px] w-[900px] -translate-y-1/2 translate-x-1/2"
+          />
+        </Suspense>
       </Container>
       <Container className="relative">
         <Heading level={2} className="title-line relative z-10">
@@ -326,10 +341,12 @@ const InfoPage = props => {
             </ProjectCard>
           ))}
         </div>
-        <Blob
-          id="info-projects-blob"
-          className="absolute left-full top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/3"
-        />
+        <Suspense fallback={null}>
+          <Blob
+            id="info-projects-blob"
+            className="absolute left-full top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/3"
+          />
+        </Suspense>
       </Container>
     </Layout>
   )

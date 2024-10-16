@@ -1,11 +1,14 @@
+import { lazy, Suspense } from 'react'
 import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 
-import Blob from '../components/Blob'
 import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
 import Heading from '../components/ui/Heading'
+
+// eslint-disable-next-line
+const Blob = lazy(() => import('../components/Blob'))
 
 const CodePage = () => {
   const { t } = useTranslation('code')
@@ -80,10 +83,12 @@ const CodePage = () => {
             </p>
           </div>
         </div>
-        <Blob
-          id="code-blob"
-          className="absolute left-full top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/3"
-        />
+        <Suspense fallback={null}>
+          <Blob
+            id="code-blob"
+            className="absolute left-full top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/3"
+          />
+        </Suspense>
       </Container>
     </Layout>
   )

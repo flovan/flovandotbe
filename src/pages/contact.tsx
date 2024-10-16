@@ -1,7 +1,7 @@
+import { lazy, Suspense } from 'react'
 import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 
-import Blob from '../components/Blob'
 import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -10,6 +10,9 @@ import { Icon } from '../components/ui/Icon'
 import { ReactComponent as IdeaVisual } from '../images/illustration-idea.svg'
 import { mergeClassName } from '../lib/class-name'
 import { PropsWithClassName } from '../types/types'
+
+// eslint-disable-next-line
+const Blob = lazy(() => import('../components/Blob'))
 
 const SeeAlsoBlock = ({ className }: PropsWithClassName) => {
   const { t } = useTranslation('contact')
@@ -74,15 +77,20 @@ const ContactPage = props => {
         </div>
         <div className="relative z-10 flex justify-center self-stretch">
           <IdeaVisual className="h-auto w-full max-w-96 lg:max-w-max" />
-          <Blob
-            id="idea-blob"
-            className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"
-          />
+          <Suspense fallback={null}>
+            <Blob
+              id="idea-blob"
+              className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"
+            />
+          </Suspense>
         </div>
-        <Blob
-          id="contact-hero-blob"
-          className="absolute left-0 top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/3 lg:top-1/2"
-        />
+        <Suspense fallback={null}>
+          {' '}
+          <Blob
+            id="contact-hero-blob"
+            className="absolute left-0 top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/3 lg:top-1/2"
+          />
+        </Suspense>
       </Container>
       <Container className="relative z-10">
         <Heading level={2} className="title-line">
