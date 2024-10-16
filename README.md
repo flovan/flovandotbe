@@ -7,13 +7,15 @@
 ## Technology
 
 - Gatsby
-- React
+- ~~React~~ Preact (_much_ better for performance)
 - Tailwind
 - ESLint + Prettier
 
 ## Getting started
 
-Run `npm install`
+Run `npm install --force`
+
+> Note: the `--force` is unfortunately required because `gatsby-plugin-preact` is forcing us to use an older version of `preact-render-to-string` which does not work with Gatsby.
 
 ## Development
 
