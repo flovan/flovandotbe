@@ -2,7 +2,7 @@ import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
-import Blob from '../components/Blob'
+import Blob from '../components/AsyncBlob'
 import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'

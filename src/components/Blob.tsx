@@ -55,7 +55,7 @@ const RectangleBlobSvg = ({ id, className }: BlobSvgProps) => (
   </svg>
 )
 
-type BlobProps = PropsWithClassName<{
+export type BlobProps = PropsWithClassName<{
   id: string
   type?: 'rectangle' | 'default'
   outline?: boolean

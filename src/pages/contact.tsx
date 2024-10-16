@@ -1,7 +1,7 @@
 import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 
-import Blob from '../components/Blob'
+import Blob from '../components/AsyncBlob'
 import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
@@ -78,7 +78,7 @@ const ContactPage = props => {
             id="idea-blob"
             className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"
           />
-        </div>
+        </div>{' '}
         <Blob
           id="contact-hero-blob"
           className="absolute left-0 top-0 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/3 lg:top-1/2"
