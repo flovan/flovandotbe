@@ -7,15 +7,15 @@ import { PropsWithClassName } from '../../types/types'
 type StepTabLinkProps = PropsWithChildren<PropsWithClassName<{ href: string }>>
 
 const StepTabLink = ({ href, className, children }: StepTabLinkProps) => (
-  <Link
-    to={href}
+  <a
+    href={href}
     className={joinClassName(
       'max-xs:flex-1 flex rounded-full border border-highlight px-flovan-xs text-flovan-sm font-semibold uppercase tracking-wider no-underline transition-colors aria-selected:bg-highlight',
       className,
     )}
   >
     {children}
-  </Link>
+  </a>
 )
 
 const StepTabs = ({ className }: PropsWithClassName) => {

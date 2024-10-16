@@ -20,6 +20,9 @@
     "babel-plugin-i18next-extract": "^0.10.0",
     "d3": "^7.9.0",
     "flubber": "^0.4.2",
+    "gatsby-plugin-preact": "^7.13.1",
+    "preact": "^10.24.3",
+    "preact-render-to-string": "^6.5.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.12"

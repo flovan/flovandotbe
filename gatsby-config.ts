@@ -63,6 +63,7 @@ const config: GatsbyConfig = {
         icon: 'src/images/flovan-icon.png',
       },
     },
+    'gatsby-plugin-preact',
     'gatsby-plugin-svgr',
     '@skagami/gatsby-plugin-dark-mode',
     'gatsby-plugin-postcss',
