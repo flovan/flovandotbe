@@ -165,7 +165,7 @@ const PricingPage = () => {
 }
 
 export const Head = ({ data }) => (
-  <FlovanHead namespace="pricing" localeEdges={data.locales.edges} />
+  <FlovanHead namespace="pricing" localeEdges={data?.locales.edges} />
 )
 
 export const query = graphql`

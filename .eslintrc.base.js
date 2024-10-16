@@ -81,7 +81,7 @@ module.exports = {
     'keyword-spacing': 'error',
     // eslint-disable-next-line quotes -- ignore classes (mainly for tailwind)
     'max-len': 'off', // ['warn', {code: 120, ignoreUrls: true}],
-    'max-statements-per-line': ['error', {max: 1}],
+    'max-statements-per-line': ['error', { max: 1 }],
     // 'multiline-ternary': ['error', 'always-multiline'],
     'new-parens': 'error',
     'no-array-constructor': 'error',
@@ -187,7 +187,8 @@ module.exports = {
         multiline: true,
       },
     ],
-    'object-curly-spacing': ['error', 'never'],
+    // Off because it conflicts with Prettier
+    // 'object-curly-spacing': ['error', 'never'],
     'one-var': ['error', 'never'],
     // 'operator-linebreak': [
     //   'error',
@@ -241,7 +242,7 @@ module.exports = {
     'require-yield': 'error',
     'rest-spread-spacing': ['error', 'never'],
     semi: ['error', 'never'],
-    'semi-spacing': ['error', {after: true, before: false}],
+    'semi-spacing': ['error', { after: true, before: false }],
     // 'sort-imports': [
     //   'error',
     //   {

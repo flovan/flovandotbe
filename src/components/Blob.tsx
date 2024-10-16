@@ -116,6 +116,7 @@ const Blob = ({
     return () => {
       unmounted.current = true
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

@@ -32,7 +32,6 @@ const Details = ({ title, children, className, ...props }: DetailsProps) => {
   }
 
   const expand = () => {
-    console.log('expand')
     const detailsElement = detailsElementRef.current
     const summaryElement = summaryElementRef.current
     const contentElement = contentElementRef.current
@@ -67,7 +66,6 @@ const Details = ({ title, children, className, ...props }: DetailsProps) => {
   }
 
   const collapse = () => {
-    console.log('collapse')
     const detailsElement = detailsElementRef.current
     const summaryElement = summaryElementRef.current
     const contentElement = contentElementRef.current
@@ -126,6 +124,7 @@ const Details = ({ title, children, className, ...props }: DetailsProps) => {
     return () => {
       summaryElement.removeEventListener('click', handleClick)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [summaryElementRef.current])
 
   return (

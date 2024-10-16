@@ -117,7 +117,7 @@ const ContactPage = props => {
 }
 
 export const Head = ({ data }) => (
-  <FlovanHead namespace="contact" localeEdges={data.locales.edges} />
+  <FlovanHead namespace="contact" localeEdges={data?.locales.edges} />
 )
 
 export const query = graphql`

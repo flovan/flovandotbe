@@ -3,5 +3,7 @@ function mapFilenames(filenames) {
 }
 
 module.exports = {
-  '*.{js,ts,tsx}': filenames => [`eslint --cache --color --fix ${mapFilenames(filenames)}`],
+  '*.{js,ts,tsx}': filenames => [
+    `eslint --cache --color --fix ${mapFilenames(filenames)}`,
+  ],
 }
