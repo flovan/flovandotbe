@@ -66,6 +66,7 @@ const config: Config = {
     },
     fontFamily: {
       sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+      title: ['var(--font-title)', ...defaultTheme.fontFamily.sans],
     },
     boxShadow: {
       sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',

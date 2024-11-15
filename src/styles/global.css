@@ -10,6 +10,15 @@
   src: url('/fonts/SpaceGrotesk.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Jokker';
+  font-style: normal;
+  font-display: swap;
+  font-feature-settings: "salt", "dlig", "liga";
+  src: url('/fonts/Jokker-SemiBold.woff2') format('woff2');
+}
+
+
 /* Fallbacks generated with FontPie https://github.com/pixel-point/fontpie */
 
 @font-face {
@@ -45,9 +54,21 @@
   size-adjust: 102.45%;
 }
 
+@font-face {
+  font-family: 'Jokker Fallback';
+  font-style: normal;
+  font-weight: 550;
+  src: local('Arial Bold');
+  ascent-override: 88.62%;
+  descent-override: 21.84%;
+  line-gap-override: 0.00%;
+  size-adjust: 102.58%;
+}
+
 @layer base {
   :root {
     --font-sans: 'Space Grotesk', 'Space Grotesk Fallback';
+    --font-title: 'Jokker', 'Jokker Fallback';
   }
 
   @media screen(2xl) {

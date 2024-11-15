@@ -20,16 +20,16 @@ const Heading = ({
 }: HeadingProps) => {
   const HeadingElement = as ?? `h${level}`
 
-  let baseClassName: HTMLAttributes<HTMLElement>['className']
+  let baseClassName: HTMLAttributes<HTMLElement>['className'] = 'font-title '
   switch (level) {
     case 1:
-      baseClassName = 'text-flovan-lg font-normal'
+      baseClassName += 'text-flovan-lg'
       break
     case 2:
-      baseClassName = 'text-flovan-sm uppercase tracking-wider font-semibold'
+      baseClassName += 'text-flovan-sm uppercase tracking-wider'
       break
     case 3:
-      baseClassName = 'text-flovan-md font-semibold'
+      baseClassName += 'text-flovan-md'
       break
     default:
       throw new Error('Invalid Heading level. Can only use 1, 2 or 3.')
