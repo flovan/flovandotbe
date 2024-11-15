@@ -13,7 +13,7 @@ import Heading from '../ui/Heading'
 import Container from './Container'
 
 type FooterProps = PropsWithClassName<{
-  topComponent?: ComponentType
+  topComponent?: ComponentType<PropsWithClassName>
 }>
 
 const Footer = ({ className, topComponent: TopComponent }: FooterProps) => {

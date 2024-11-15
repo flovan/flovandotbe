@@ -35,7 +35,6 @@ const ProjectCardImage = () => {
       <GatsbyImage
         image={image}
         alt="Project"
-        placeholder="blurred"
         sizes="(min-width: 768px) 500px, (min-width: 1024px) 600px, 100vw"
       />
     </div>
@@ -51,12 +50,12 @@ const ProjectCardTitle = () => {
   )
 }
 
-const ProjectCardTags = ({ children }: PropsWithChildren) => {
-  const { id, tags } = useProjectCardContext()
+const ProjectCardTags = () => {
+  const { title, tags } = useProjectCardContext()
   return (
     <ul className="flex flex-wrap items-center gap-flovan-stroke">
       {tags.map((tag, index) => (
-        <li key={`${id}_tag_${index}`} className="leading-none">
+        <li key={`${title}_tag_${index}`} className="leading-none">
           <span className="border-px inline-flex rounded-full border px-2 py-0.5 text-flovan-xs uppercase tracking-wider">
             {tag}
           </span>

@@ -36,6 +36,8 @@ const Heading = ({
   }
 
   return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     <HeadingElement
       className={mergeClassName(baseClassName, className)}
       {...props}

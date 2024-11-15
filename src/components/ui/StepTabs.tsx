@@ -1,5 +1,5 @@
 import { PropsWithChildren, useEffect, useRef } from 'react'
-import { Link, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
+import { useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 
 import { joinClassName } from '../../lib/class-name'
 import { PropsWithClassName } from '../../types/types'

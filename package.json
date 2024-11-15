@@ -33,6 +33,7 @@
     "@skagami/gatsby-plugin-dark-mode": "^2.0.0",
     "@svgr/webpack": "^8.1.0",
     "@types/d3": "^7.4.3",
+    "@types/flubber": "^0.4.0",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "22.5.5",
     "@types/react-dom": "^18.3.0",

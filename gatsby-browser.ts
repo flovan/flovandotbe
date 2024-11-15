@@ -1,16 +1,20 @@
-import { createRoot } from 'react-dom/client'
-import { ShouldUpdateScrollArgs } from 'gatsby'
+import { DOMAttributes, DOMElement } from 'react'
+import { Renderer } from 'react-dom'
+import { Container, createRoot } from 'react-dom/client'
+import { GatsbyBrowser } from 'gatsby'
 
 import './src/styles/global.css'
 
 // Fix some scroll-after-navigate issues
 // See https://github.com/gatsbyjs/gatsby/issues/38201
-export const shouldUpdateScroll = ({
+export const shouldUpdateScroll: GatsbyBrowser['shouldUpdateScroll'] = ({
   routerProps: { location },
   getSavedScrollPosition,
-}: ShouldUpdateScrollArgs) => {
+}) => {
   window.history.scrollRestoration = 'manual'
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const currentPosition = getSavedScrollPosition(location, location.key)
   const { hash } = window.location
 
@@ -21,7 +25,7 @@ export const shouldUpdateScroll = ({
       window.setTimeout(() => {
         element.scrollIntoView()
       }, 0)
-      return
+      return false
     }
   }
 
@@ -42,9 +46,13 @@ export const shouldUpdateScroll = ({
 
 // Prevent multiple issues with React hydration
 // See https://github.com/gatsbyjs/gatsby/discussions/36232#discussioncomment-6145675
-export const replaceHydrateFunction = () => {
-  return (element, container) => {
-    const root = createRoot(container)
-    root.render(element)
+export const replaceHydrateFunction: GatsbyBrowser['replaceHydrateFunction'] =
+  () => {
+    return ((
+      element: DOMElement<DOMAttributes<Element>, Element>,
+      container: Container,
+    ) => {
+      const root = createRoot(container)
+      root.render(element)
+    }) as Renderer
   }
-}

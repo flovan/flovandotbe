@@ -3,11 +3,11 @@ import {
   Trans,
   useTranslation,
 } from '@herob191/gatsby-plugin-react-i18next'
-import { graphql } from 'gatsby'
+import { graphql, HeadProps, PageProps } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
 import Blob from '../components/AsyncBlob'
-import FlovanHead from '../components/Head'
+import FlovanHead, { HeadLocales } from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
 import Details from '../components/ui/Details'
@@ -19,20 +19,20 @@ import { ReactComponent as CommandmentsVisual } from '../images/illustration-com
 import { ReactComponent as DesignDevelopmentVisual } from '../images/illustration-design-development.svg'
 import { Project } from '../types/types'
 
-const InfoPage = props => {
+const InfoPage = (props: PageProps<Queries.InfoPageQuery>) => {
   const { t } = useTranslation('info')
 
   const projects = [
     {
       title: t('A corporate website for HealthySolutions'),
-      image: getImage(props.data.healthySolutionsImage.childImageSharp),
+      image: getImage(props.data.healthySolutionsImage!.childImageSharp),
       tags: ['Design', 'Development', 'CMS', 'Copywriting'],
     },
     {
       title: t(
         'Automated data consolidation for the new Vlaanderen.be website',
       ),
-      image: getImage(props.data.vlaanderenImage.childImageSharp),
+      image: getImage(props.data.vlaanderenImage!.childImageSharp),
       tags: ['Development', 'AWS', 'IoT'],
     },
   ] as Array<Project>
@@ -335,7 +335,7 @@ const InfoPage = props => {
   )
 }
 
-export const Head = ({ data }) => (
+export const Head = ({ data }: HeadProps<HeadLocales>) => (
   <FlovanHead namespace="info" localeEdges={data.locales.edges} />
 )
 

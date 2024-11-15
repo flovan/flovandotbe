@@ -1,6 +1,14 @@
+import { PropsWithChildren } from 'react'
+
 import { useSiteMetadata } from '../hooks/useSiteMetaData'
 
-const SEO = ({ title, description, pathname, children }) => {
+type SEOProps = PropsWithChildren<{
+  title?: string
+  description?: string
+  pathname?: string
+}>
+
+const SEO = ({ title, description, pathname, children }: SEOProps) => {
   const {
     title: defaultTitle,
     description: defaultDescription,

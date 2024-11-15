@@ -1,11 +1,18 @@
-import { TranslationProps } from '@herob191/gatsby-plugin-react-i18next'
-import { HeadProps as GatsbyHeadProps } from 'gatsby'
-
 import Assets from './Assets'
 import SEO from './Seo'
 
+interface LocalesEdge {
+  node: { ns: string; data: string }
+}
+
+export interface HeadLocales {
+  locales: {
+    edges: Array<LocalesEdge>
+  }
+}
+
 interface HeadProps {
-  localeEdges: Array<{ node: { ns: string; data: string } }>
+  localeEdges: Array<LocalesEdge>
   namespace: string
 }
 

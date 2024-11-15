@@ -1,8 +1,8 @@
 import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
-import { graphql } from 'gatsby'
+import { graphql, HeadProps } from 'gatsby'
 
 import Blob from '../components/AsyncBlob'
-import FlovanHead from '../components/Head'
+import FlovanHead, { HeadLocales } from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
 import Heading from '../components/ui/Heading'
@@ -44,7 +44,7 @@ const SeeAlsoBlock = ({ className }: PropsWithClassName) => {
   )
 }
 
-const ContactPage = props => {
+const ContactPage = () => {
   const { t } = useTranslation('contact')
 
   return (
@@ -116,8 +116,8 @@ const ContactPage = props => {
   )
 }
 
-export const Head = ({ data }) => (
-  <FlovanHead namespace="contact" localeEdges={data?.locales.edges} />
+export const Head = ({ data }: HeadProps<HeadLocales>) => (
+  <FlovanHead namespace="contact" localeEdges={data.locales.edges} />
 )
 
 export const query = graphql`

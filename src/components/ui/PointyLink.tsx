@@ -4,11 +4,14 @@ import { GatsbyLinkProps } from 'gatsby'
 
 import { ReactComponent as PointyHandGraphic } from '../../images/illustration-hand-point-right.svg'
 import { mergeClassName } from '../../lib/class-name'
+import { PropsWithClassName } from '../../types/types'
 
 type PointyLinkProps = Pick<GatsbyLinkProps<HTMLAnchorElement>, 'to'> &
-  PropsWithChildren & {
-    direction?: 'right' | 'down'
-  }
+  PropsWithChildren<
+    PropsWithClassName<{
+      direction?: 'right' | 'down'
+    }>
+  >
 
 const PointyLink = ({
   children,

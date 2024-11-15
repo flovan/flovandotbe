@@ -1,9 +1,9 @@
 import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
-import { graphql } from 'gatsby'
+import { graphql, HeadProps, PageProps } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
 import Blob from '../components/AsyncBlob'
-import FlovanHead from '../components/Head'
+import FlovanHead, { HeadLocales } from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
 import Heading from '../components/ui/Heading'
@@ -13,18 +13,18 @@ import { ReactComponent as HeroVisual } from '../images/illustration-digital-tou
 import { ReactComponent as ClientsVisual } from '../images/illustration-hands-hold-up-heart.svg'
 import { Project } from '../types/types'
 
-const HomePage = props => {
+const HomePage = (props: PageProps<Queries.IndexPageQuery>) => {
   const { t } = useTranslation('home')
 
   const projects = [
     {
       title: t('A new website for Actes'),
-      image: getImage(props.data.actesImage.childImageSharp),
+      image: getImage(props.data.actesImage!.childImageSharp),
       tags: ['Design', 'Development', 'CMS', 'Copywriting'],
     },
     {
       title: t('A display management platform for TP Vision'),
-      image: getImage(props.data.tpvisionImage.childImageSharp),
+      image: getImage(props.data.tpvisionImage!.childImageSharp),
       tags: ['Development', 'AWS', 'IoT'],
     },
   ] as Array<Project>
@@ -136,7 +136,7 @@ const HomePage = props => {
   )
 }
 
-export const Head = ({ data }) => (
+export const Head = ({ data }: HeadProps<HeadLocales>) => (
   <FlovanHead namespace="home" localeEdges={data.locales.edges} />
 )
 
