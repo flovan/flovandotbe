@@ -64,7 +64,7 @@ const PricingPage = () => {
             </ul>
           </div>
           <div className="relative flex justify-center">
-            <WalletVisual className="h-auto w-full max-w-96" />
+            <WalletVisual className="h-auto w-full max-lg:max-w-96" />
             <Blob
               id="wallet-blob"
               className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"

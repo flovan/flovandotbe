@@ -21,7 +21,7 @@ const Header = ({ className }: PropsWithClassName) => {
           />
         </Link>
         <nav>
-          <ul className="flex gap-8">
+          <ul className="flex gap-6 xs:gap-8">
             <li>
               <MenuLink to="/info">{t('Info')}</MenuLink>
             </li>

@@ -73,7 +73,7 @@ const ContactPage = () => {
           </div>
         </div>
         <div className="relative z-10 flex justify-center self-stretch">
-          <IdeaVisual className="h-auto w-full max-w-96 lg:max-w-max" />
+          <IdeaVisual className="h-auto w-full max-lg:max-w-96" />
           <Blob
             id="idea-blob"
             className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2"
