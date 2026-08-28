@@ -63,6 +63,23 @@ const config: GatsbyConfig = {
         icon: 'src/images/flovan-icon.png',
       },
     },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        // The i18n plugin creates a page per language, so the 404s have to
+        // be excluded under every prefix as well as at the root.
+        excludes: [
+          '/404',
+          '/404/',
+          '/404.html',
+          '/dev-404-page',
+          '/**/404',
+          '/**/404/',
+          '/**/404.html',
+          '/**/dev-404-page',
+        ],
+      },
+    },
     'gatsby-plugin-preact',
     'gatsby-plugin-svgr',
     '@skagami/gatsby-plugin-dark-mode',
