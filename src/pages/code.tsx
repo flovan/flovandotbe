@@ -2,7 +2,10 @@ import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql, HeadProps } from 'gatsby'
 
 import Blob from '../components/AsyncBlob'
-import FlovanHead, { HeadLocales } from '../components/Head'
+import FlovanHead, {
+  HeadLocales,
+  I18nPageContext,
+} from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
 import Heading from '../components/ui/Heading'
@@ -89,8 +92,15 @@ const CodePage = () => {
   )
 }
 
-export const Head = ({ data }: HeadProps<HeadLocales>) => (
-  <FlovanHead namespace="code" localeEdges={data.locales.edges} />
+export const Head = ({
+  data,
+  pageContext,
+}: HeadProps<HeadLocales, I18nPageContext>) => (
+  <FlovanHead
+    namespace="code"
+    localeEdges={data.locales.edges}
+    pageContext={pageContext}
+  />
 )
 
 export const query = graphql`

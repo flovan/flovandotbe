@@ -3,7 +3,10 @@ import { graphql, HeadProps, PageProps } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
 import Blob from '../components/AsyncBlob'
-import FlovanHead, { HeadLocales } from '../components/Head'
+import FlovanHead, {
+  HeadLocales,
+  I18nPageContext,
+} from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
 import Heading from '../components/ui/Heading'
@@ -136,8 +139,15 @@ const HomePage = (props: PageProps<Queries.IndexPageQuery>) => {
   )
 }
 
-export const Head = ({ data }: HeadProps<HeadLocales>) => (
-  <FlovanHead namespace="home" localeEdges={data.locales.edges} />
+export const Head = ({
+  data,
+  pageContext,
+}: HeadProps<HeadLocales, I18nPageContext>) => (
+  <FlovanHead
+    namespace="home"
+    localeEdges={data.locales.edges}
+    pageContext={pageContext}
+  />
 )
 
 export const query = graphql`
