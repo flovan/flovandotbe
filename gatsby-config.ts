@@ -1,6 +1,9 @@
 import type { GatsbyConfig } from 'gatsby'
+import adapter from 'gatsby-adapter-netlify'
 
 const config: GatsbyConfig = {
+  // Netlify's build otherwise installs this on the fly on every run
+  adapter: adapter(),
   siteMetadata: {
     title: 'Flovan',
     siteUrl: 'https://flovan.be',

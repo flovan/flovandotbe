@@ -126,3 +126,8 @@ later, which the `overrides` in `package.json` takes care of. See
 ### CI/CD
 
 This repository is connected to Netlify and any changes to the `main` branch will result in a new build and deploy to production.
+
+`gatsby-adapter-netlify` handles the Netlify side of the build: it writes
+`public/_headers` (immutable caching for the fingerprinted assets, plus a few
+security headers) and `public/_redirects`. Both are generated, so put anything
+hand-written in `static/` instead.

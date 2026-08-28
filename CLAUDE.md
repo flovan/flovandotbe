@@ -52,6 +52,10 @@ Verify UI work by building and reading the HTML in `public/`, or with
 - `netlify.toml` declares `functions = "lambda"`, but no such directory exists
   and the site is fully static. Bot traffic hitting unknown paths costs
   nothing, so it needs no redirect rules.
+- `gatsby-adapter-netlify` generates `public/_headers` and `public/_redirects`
+  during the build, which is where the immutable caching and the security
+  headers come from. Both files are build output; hand-written ones belong in
+  `static/`, where Gatsby copies them from.
 - React is aliased to Preact by `gatsby-plugin-preact`. Anything relying on
   React internals is a risk.
 
