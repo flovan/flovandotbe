@@ -2,7 +2,8 @@
 
 ## Requirements
 
-- NodeJS and NPM
+- Node 22 (see `.nvmrc`, and `NODE_VERSION` in `netlify.toml` for the build)
+- NPM
 
 ## Technology
 
@@ -13,9 +14,11 @@
 
 ## Getting started
 
-Run `npm install --force`
+Run `npm install`
 
-> Note: the `--force` is unfortunately required because `gatsby-plugin-preact` is forcing us to use an older version of `preact-render-to-string` which does not work with Gatsby.
+> Note: `gatsby-plugin-preact` peers on an older `preact-render-to-string` than
+> Gatsby 5 needs, so the install fails to resolve on its own. `.npmrc` sets
+> `legacy-peer-deps` to get past it, here and on the Netlify build image.
 
 ## Development
 
@@ -99,11 +102,26 @@ To extract the translation keys into the various locale files, run
 
 ```npm run i18n:extract```
 
+### SEO
+
+Every page is built three times: unprefixed, `/nl/` and `/en/`. The unprefixed
+URL is the canonical one for Dutch, so `src/components/Head.tsx` emits a
+canonical link and `hreflang` alternates from the i18n page context, and the
+sitemap skips the `/nl/` duplicates. See
+[ADR 1](docs/adr/0001-canonical-language-urls.md).
+
+`static/robots.txt` and `gatsby-plugin-sitemap` produce `/robots.txt` and
+`/sitemap-index.xml`.
+
 ## Production
 
 ### Building
 
 ```npm run build```
+
+The build fails on Node 23 and up unless `msgpackr` resolves to 1.11.2 or
+later, which the `overrides` in `package.json` takes care of. See
+[ADR 2](docs/adr/0002-node-and-msgpackr-pins.md).
 
 ### CI/CD
 
