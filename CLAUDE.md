@@ -60,8 +60,9 @@ Verify UI work by building and reading the HTML in `public/`, or with
 
 Follow the surrounding code:
 
-- No semicolons, single quotes, two-space indent, 80 columns; prettier is
-  wired into eslint, so formatting drift fails the lint step.
+- No semicolons, single quotes, two-space indent, 80 columns. ESLint
+  (`eslint.config.js`, flat config) enforces the stylistic rules but does not
+  run Prettier; `npm run lint:fix` does, so run it after big edits.
 - Components are arrow functions with a default export.
 - User-facing strings are written inline, in English.
 - Tailwind for styling, with the project's `flovan-*` font-size and spacing
