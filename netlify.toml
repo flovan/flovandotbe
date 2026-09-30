@@ -6,8 +6,6 @@
   # Netlify's build image defaults to whatever Node it ships with, currently
   # 24. Pin it so the build does not change under us; mirrored in .nvmrc.
   NODE_VERSION = "22"
-  YARN_VERSION = "1.9.4"
-  YARN_FLAGS = "--no-ignore-optional"
 
 # The site used to be served in Dutch and English under /nl/ and /en/
 # prefixes. Those URLs are indexed, so send them to the English-only pages.
