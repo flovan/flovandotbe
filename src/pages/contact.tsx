@@ -54,11 +54,6 @@ const ContactPage = () => {
               <li>
                 <a href="mailto:hello@flovan.be">hello@flovan.be</a>
               </li>
-              <li>
-                <a href="https://calendar.app.google/W5pG4bLAJH9re5j37">
-                  Schedule a meeting
-                </a>
-              </li>
             </ul>
           </div>
         </div>

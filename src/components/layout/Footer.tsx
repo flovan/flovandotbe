@@ -34,11 +34,7 @@ const Footer = ({ className, topComponent: TopComponent }: FooterProps) => {
             <p className="text-flovan-md font-light">
               Ready to talk about your project?
               <br />
-              <a href="mailto:hello@flovan.be">Email me</a> or{' '}
-              <a href="https://calendar.app.google/W5pG4bLAJH9re5j37">
-                schedule a meeting
-              </a>
-              .
+              <a href="mailto:hello@flovan.be">Email me</a>.
             </p>
           </Container>
         </div>
