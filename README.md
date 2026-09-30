@@ -10,7 +10,7 @@
 - Gatsby
 - ~~React~~ Preact (_much_ better for performance)
 - Tailwind
-- ESLint + Prettier
+- ESLint, with `@stylistic` for formatting
 
 ## Getting started
 

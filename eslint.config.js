@@ -1,5 +1,4 @@
 const stylistic = require('@stylistic/eslint-plugin')
-const prettier = require('eslint-config-prettier')
 const jsxA11y = require('eslint-plugin-jsx-a11y')
 const react = require('eslint-plugin-react')
 const reactHooks = require('eslint-plugin-react-hooks')
@@ -37,10 +36,6 @@ module.exports = [
   {
     ignores: ['node_modules/', 'public/', '.cache/', '**/*.d.ts'],
   },
-
-  // Turns off the formatting rules that fight Prettier. It comes first, so the
-  // stylistic rules below that are compatible with Prettier stay on.
-  prettier,
 
   // All files
   {
