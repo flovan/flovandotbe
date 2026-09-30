@@ -14,7 +14,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "d3": "^7.9.0",
     "flubber": "^0.4.2",
     "preact": "^10.24.3",
     "preact-render-to-string": "^6.5.11",
@@ -29,7 +28,6 @@
     "@skagami/gatsby-plugin-dark-mode": "^2.0.0",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@svgr/webpack": "^8.1.0",
-    "@types/d3": "^7.4.3",
     "@types/flubber": "^0.4.0",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "22.5.5",
