@@ -1,85 +1,67 @@
-import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
-import { graphql, HeadProps } from 'gatsby'
+import { HeadProps } from 'gatsby'
 
 import Blob from '../components/AsyncBlob'
-import FlovanHead, {
-  HeadLocales,
-  I18nPageContext,
-} from '../components/Head'
+import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
 import Heading from '../components/ui/Heading'
 
 const CodePage = () => {
-  const { t } = useTranslation('code')
-
   return (
     <Layout>
       <Container className="relative grid grid-cols-1 gap-flovan-lg md:grid-cols-3 md:gap-flovan-base lg:gap-flovan-md">
         <div className="relative z-10 col-span-2">
           <Heading level={2} as="h1" className="title-line">
-            {t('A look underneath the hood')}
+            A look underneath the hood
           </Heading>
           <div className="prose">
             <p className="text-flovan-lg font-normal">
-              <Trans>
-                The source code for this website can be found{' '}
-                <a href="https://github.com/flovan/flovandotbe">on Github</a>.
-              </Trans>
+              The source code for this website can be found{' '}
+              <a href="https://github.com/flovan/flovandotbe">on Github</a>.
             </p>
             <p>
-              <Trans>
-                This website is statically generated with{' '}
-                <a href="https://www.gatsbyjs.com">Gatsby</a> and coded in{' '}
-                <a href="http://typescriptlang.org">Typescript</a> using{' '}
-                <a href="https://react.dev">React</a>. I am pretty sure you
-                could consider it to be a JAM stack setup. In its current form,
-                it is a little over-engineered, but it does give me the freedom
-                to experiment, or, at some point, plug in a headless CMS if
-                needed. Also, I really like working with React. It’s pretty dang
-                solid imo.
-              </Trans>
+              This website is statically generated with{' '}
+              <a href="https://www.gatsbyjs.com">Gatsby</a> and coded in{' '}
+              <a href="http://typescriptlang.org">Typescript</a> using{' '}
+              <a href="https://react.dev">React</a>. I am pretty sure you could
+              consider it to be a JAM stack setup. In its current form, it is a
+              little over-engineered, but it does give me the freedom to
+              experiment, or, at some point, plug in a headless CMS if needed.
+              Also, I really like working with React. It’s pretty dang solid
+              imo.
             </p>
             <p>
-              <Trans>
-                For styling, this website uses{' '}
-                <a href="http://tailwindcss.com">Tailwind</a> with a custom
-                color scheme. The font in use is the open source{' '}
-                <a href="https://fonts.floriankarsten.com/space-grotesk">
-                  Space Grotesk
-                </a>
-                , and I opted to use the variable font as this removes the need
-                for multiple font files.
-              </Trans>
+              For styling, this website uses{' '}
+              <a href="http://tailwindcss.com">Tailwind</a> with a custom color
+              scheme. The font in use is the open source{' '}
+              <a href="https://fonts.floriankarsten.com/space-grotesk">
+                Space Grotesk
+              </a>
+              , and I opted to use the variable font as this removes the need
+              for multiple font files.
             </p>
             <p>
-              <Trans>
-                The pulsing blobs in the background are animated using{' '}
-                <a href="http://d3js.org">D3</a> and the shapes where generated
-                using the <a href="https://www.blobmaker.app">Blobmaker</a>{' '}
-                website.
-              </Trans>
+              The pulsing blobs in the background are animated using{' '}
+              <a href="http://d3js.org">D3</a> and the shapes where generated
+              using the <a href="https://www.blobmaker.app">Blobmaker</a>{' '}
+              website.
             </p>
             <p>
-              <Trans>
-                I roughly designed this website in{' '}
-                <a href="https://affinity.serif.com/en-us/designer/">
-                  Affinity Designer
-                </a>{' '}
-                and then fine-tuned everything during development.
-              </Trans>
+              I roughly designed this website in{' '}
+              <a href="https://affinity.serif.com/en-us/designer/">
+                Affinity Designer
+              </a>{' '}
+              and then fine-tuned everything during development.
             </p>
             <p>
-              <Trans>
-                As mentioned there is no CMS in use at this time, but for this
-                project I would probably implement{' '}
-                <a href="https://decapcms.org">Decap CMS</a>. This integrates
-                well with the CI/CD deployment from the repository onto{' '}
-                <a href="http://netlify.com">Netlify</a>. Netlify is very
-                reliable and the user interface is very easy to use. Their
-                generous free-tier hosting allows me to have this website up for
-                €0 per month.
-              </Trans>
+              As mentioned there is no CMS in use at this time, but for this
+              project I would probably implement{' '}
+              <a href="https://decapcms.org">Decap CMS</a>. This integrates well
+              with the CI/CD deployment from the repository onto{' '}
+              <a href="http://netlify.com">Netlify</a>. Netlify is very reliable
+              and the user interface is very easy to use. Their generous
+              free-tier hosting allows me to have this website up for €0 per
+              month.
             </p>
           </div>
         </div>
@@ -92,31 +74,8 @@ const CodePage = () => {
   )
 }
 
-export const Head = ({
-  data,
-  pageContext,
-}: HeadProps<HeadLocales, I18nPageContext>) => (
-  <FlovanHead
-    namespace="code"
-    localeEdges={data.locales.edges}
-    pageContext={pageContext}
-  />
+export const Head = ({ location }: HeadProps) => (
+  <FlovanHead title="Code" pathname={location.pathname} />
 )
-
-export const query = graphql`
-  query CodePage($language: String!) {
-    locales: allLocale(
-      filter: { ns: { in: ["common", "code"] }, language: { eq: $language } }
-    ) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-  }
-`
 
 export default CodePage

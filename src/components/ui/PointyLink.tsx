@@ -1,6 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { Link } from '@herob191/gatsby-plugin-react-i18next'
-import { GatsbyLinkProps } from 'gatsby'
+import { GatsbyLinkProps, Link } from 'gatsby'
 
 import { ReactComponent as PointyHandGraphic } from '../../images/illustration-hand-point-right.svg'
 import { mergeClassName } from '../../lib/class-name'

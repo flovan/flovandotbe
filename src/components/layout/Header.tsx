@@ -1,4 +1,4 @@
-import { Link, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
+import { Link } from 'gatsby'
 
 import { PropsWithClassName } from '../../types/types'
 import { Icon } from '../ui/Icon'
@@ -6,8 +6,6 @@ import MenuLink from '../ui/MenuLink'
 import Container from './Container'
 
 const Header = ({ className }: PropsWithClassName) => {
-  const { t } = useTranslation('common')
-
   return (
     <header className={className}>
       <Container className="flex items-center justify-between">
@@ -23,13 +21,13 @@ const Header = ({ className }: PropsWithClassName) => {
         <nav>
           <ul className="flex gap-6 xs:gap-8">
             <li>
-              <MenuLink to="/info">{t('Info')}</MenuLink>
+              <MenuLink to="/info">Info</MenuLink>
             </li>
             <li>
-              <MenuLink to="/pricing">{t('Pricing')}</MenuLink>
+              <MenuLink to="/pricing">Pricing</MenuLink>
             </li>
             <li>
-              <MenuLink to="/contact">{t('Contact')}</MenuLink>
+              <MenuLink to="/contact">Contact</MenuLink>
             </li>
           </ul>
         </nav>

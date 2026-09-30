@@ -39,76 +39,11 @@ To update the SVG sprite, run
 
 > Note: Icons should have a `viewBox`, but no `width` or `height` (this makes them scalable through CSS). Also make sure there is no `fill` of `stroke` color defined.
 
-### i18n
-
-This project uses `i18next` (and `react-i18next`) for multi-language support.
-The implementation is very bare bones and fragile, but is does the job and I don't mind the tinkering.
-
-Example of how to do translations inside of a component:
-
-```tsx
-// src/components/MyComponent.tsx
-
-import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
-
-export const MyComponent = () => {
-  const {t} = useTranslation('namespace') // this will create a `namespace.json` locale
-
-  return (
-    <>
-      <h1>{t('This is my title')}</h1>
-      <p>
-        <Trans>This is a sentence with <strong>nested elements</strong></Trans>
-      </p>
-    </>
-  )
-}
-```
-
-Note that you will need to query the locales from the page that is using the above component, for example:
-
-```tsx
-// src/pages/index.tsx
-
-import { graphql } from 'gatsby'
-import { MyComponent } from '../components/MyComponent'
-
-export default function IndexPage() {
-  return (
-    <MyComponent />
-  )
-}
-
-export const query = graphql`
-  query IndexPage($language: String!) {
-    locales: allLocale(
-      filter: { ns: { in: ["namespace"] }, language: { eq: $language } }
-    ) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-  }
-`
-```
-
-If you don't query the language, the key will be used as a fallback.
-
-To extract the translation keys into the various locale files, run
-
-```npm run i18n:extract```
-
 ### SEO
 
-Every page is built three times: unprefixed, `/nl/` and `/en/`. The unprefixed
-URL is the canonical one for Dutch, so `src/components/Head.tsx` emits a
-canonical link and `hreflang` alternates from the i18n page context, and the
-sitemap skips the `/nl/` duplicates. See
-[ADR 1](docs/adr/0001-canonical-language-urls.md).
+The site is English only. `src/components/Head.tsx` emits a canonical link for
+every page, and `netlify.toml` 301s the old `/nl/` and `/en/` URLs to their
+unprefixed pages. See [ADR 3](docs/adr/0003-english-only.md).
 
 `static/robots.txt` and `gatsby-plugin-sitemap` produce `/robots.txt` and
 `/sitemap-index.xml`.

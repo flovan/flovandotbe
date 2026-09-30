@@ -1,5 +1,4 @@
 import { PropsWithChildren, useEffect, useRef } from 'react'
-import { useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 
 import { joinClassName } from '../../lib/class-name'
 import { PropsWithClassName } from '../../types/types'
@@ -19,8 +18,6 @@ const StepTabLink = ({ href, className, children }: StepTabLinkProps) => (
 )
 
 const StepTabs = ({ className }: PropsWithClassName) => {
-  const { t } = useTranslation('info')
-
   const rootElementRef = useRef<HTMLDivElement | null>(null)
   const tabListElementRef = useRef<HTMLUListElement | null>(null)
   const tabElementsRef = useRef<Array<HTMLAnchorElement>>([])
@@ -139,9 +136,9 @@ const StepTabs = ({ className }: PropsWithClassName) => {
       >
         <li className="flex items-center gap-flovan-xs [&.active]:flex-1">
           <StepTabLink href="#step-1" className="group peer">
-            <span>{t('Step 1')}</span>
+            <span>Step 1</span>
             <span className="hidden group-aria-selected:block max-xs:block">
-              : {t('Chit-chat')}
+              : Talk
             </span>
           </StepTabLink>
           <div
@@ -152,9 +149,9 @@ const StepTabs = ({ className }: PropsWithClassName) => {
         </li>
         <li className="flex items-center gap-flovan-xs [&.active]:flex-1">
           <StepTabLink href="#step-2" className="group peer">
-            <span>{t('Step 2')}</span>
+            <span>Step 2</span>
             <span className="hidden group-aria-selected:block max-xs:block">
-              : {t('Handshake')}
+              : Approval
             </span>
           </StepTabLink>
           <div
@@ -165,32 +162,34 @@ const StepTabs = ({ className }: PropsWithClassName) => {
         </li>
         <li className="flex items-center gap-flovan-xs [&.active]:flex-1">
           <StepTabLink href="#step-3" className="group peer">
-            <span>{t('Step 3')}</span>
+            <span>Step 3</span>
             <span className="hidden group-aria-selected:block max-xs:block">
-              : {t('Delivery')}
+              : Go-time
             </span>
           </StepTabLink>
         </li>
       </ul>
       <section id="step-1" className="prose">
         <p>
-          {t(
-            'Everything starts with clearly defined goals—both yours and those of your potential customers. We can translate those goals into a digital strategy that defines the scope of what needs to be designed and built.',
-          )}
+          Everything starts with clearly defined goals—both yours and those of
+          your potential customers. We can translate those goals into a digital
+          strategy that defines the scope of what needs to be designed and
+          built.
         </p>
       </section>
       <section id="step-2" className="prose" hidden>
         <p>
-          {t(
-            'With the strategy in hand, I can draft a quote with a target date on which the realisation will start, and when the delivery of the end result could be. All I need now, is your agreement and any required assets.',
-          )}
+          With that blueprint in hand, I can draft a quote with a target date on
+          which the realisation will start, and when the delivery of the end
+          result could be. All I need now, is your agreement.
         </p>
       </section>
       <section id="step-3" className="prose" hidden>
         <p>
-          {t(
-            'Once the production kicks off, an initial design phase will be followed by development, then testing and validation, and finally, the delivery—with an obligatory celebration!',
-          )}
+          Seeing is believing—the initial design phase will provide you with a
+          first look the the result. The development phase will then make the
+          design tangible. After proper testing and validation, we finally get
+          the delivery!
         </p>
       </section>
     </div>

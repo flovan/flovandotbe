@@ -22,13 +22,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/locales`,
-        name: 'locale',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-sharp',
       options: {
         defaults: {
@@ -42,21 +35,6 @@ const config: GatsbyConfig = {
     'gatsby-transformer-sharp',
     `gatsby-plugin-image`,
     {
-      resolve: '@herob191/gatsby-plugin-react-i18next',
-      options: {
-        localeJsonSourceName: 'locale', // set through `gatsby-source-filesystem`, see above
-        languages: ['nl', 'en'],
-        defaultLanguage: 'nl',
-        siteUrl: 'https://flovan.be',
-        generateDefaultLanguagePage: true,
-        i18nextOptions: {
-          interpolation: {
-            escapeValue: false,
-          },
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Flovan',
@@ -69,9 +47,6 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        // Every page also exists under a language prefix. /nl/... duplicates
-        // the unprefixed page, which is the one the canonical tags point at,
-        // so only the unprefixed and /en/ URLs belong in the sitemap.
         excludes: [
           '/404',
           '/404/',
@@ -81,8 +56,6 @@ const config: GatsbyConfig = {
           '/**/404/',
           '/**/404.html',
           '/**/dev-404-page',
-          '/nl',
-          '/nl/**',
         ],
       },
     },

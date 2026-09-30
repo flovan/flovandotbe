@@ -1,12 +1,8 @@
-import { Trans, useTranslation } from '@herob191/gatsby-plugin-react-i18next'
 import { graphql, HeadProps, PageProps } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
 import Blob from '../components/AsyncBlob'
-import FlovanHead, {
-  HeadLocales,
-  I18nPageContext,
-} from '../components/Head'
+import FlovanHead from '../components/Head'
 import Container from '../components/layout/Container'
 import Layout from '../components/layout/Layout'
 import Heading from '../components/ui/Heading'
@@ -17,16 +13,14 @@ import { ReactComponent as ClientsVisual } from '../images/illustration-hands-ho
 import { Project } from '../types/types'
 
 const HomePage = (props: PageProps<Queries.IndexPageQuery>) => {
-  const { t } = useTranslation('home')
-
   const projects = [
     {
-      title: t('A new website for Actes'),
+      title: 'A new website for Actes',
       image: getImage(props.data.actesImage!.childImageSharp),
       tags: ['Design', 'Development', 'CMS', 'Copywriting'],
     },
     {
-      title: t('A display management platform for TP Vision'),
+      title: 'A display management platform for TP Vision',
       image: getImage(props.data.tpvisionImage!.childImageSharp),
       tags: ['Development', 'AWS', 'IoT'],
     },
@@ -39,25 +33,21 @@ const HomePage = (props: PageProps<Queries.IndexPageQuery>) => {
           <div>
             <div className="prose mb-flovan-base flex flex-col">
               <Heading level={1}>
-                <Trans>
-                  <span className="font-semibold">D*mn good web creations</span>{' '}
-                  for businesses like yours.
-                </Trans>
+                <span className="font-semibold">D*mn good web creations</span>{' '}
+                for businesses like yours.
               </Heading>
               <HeroVisual className="max-w-96 self-center sm:max-w-[36rem] lg:hidden" />
               <p>
-                {t(
-                  'Flovan is a web development studio specializing in designing and building websites and web applications, tailored to your specific needs.',
-                )}
+                Flovan is a design and development studio specializing in
+                designing and building websites and web applications, tailored
+                to your specific needs.
               </p>
               <p>
-                <Trans>
-                  Come get some <em>www-wow</em> to tell your story, engage your
-                  audience, and drive your business forward.
-                </Trans>
+                Come get some <em>www-wow</em> to tell your story, engage your
+                audience, and drive your business forward.
               </p>
             </div>
-            <PointyLink to="/info">{t('More on my services')}</PointyLink>
+            <PointyLink to="/info">More on my services</PointyLink>
           </div>
           <HeroVisual className="hidden h-auto w-full lg:block" />
         </div>
@@ -70,38 +60,37 @@ const HomePage = (props: PageProps<Queries.IndexPageQuery>) => {
       <Container className="relative z-10 grid grid-cols-1 items-center gap-flovan-lg lg:grid-cols-2 lg:gap-flovan-md">
         <div>
           <Heading level={2} className="title-line">
-            {t('In a nutshell')}
+            In a nutshell
           </Heading>
           <div className="prose mb-flovan-base">
-            <Heading level={3}>{t('Web design & development')}</Heading>
+            <Heading level={3}>Web design & development</Heading>
             <p>
-              <Trans>
-                Friendly, modern designs combined with web development best
-                practices, rolled up into a well-performing website that sells
-                your business while you focus on your craft. A great{' '}
-                <em>google’ability</em>, fast loading times and standing out
-                from your competition are all part of the deal.
-              </Trans>
+              Friendly, modern designs combined with web development best
+              practices, rolled up into a well-performing website that sells
+              your business while you focus on your craft. A great{' '}
+              <em>google’ability</em>, fast loading times and standing out from
+              your competition are all part of the deal.
             </p>
           </div>
           <div className="prose mb-flovan-base">
-            <Heading level={3}>{t('Web Applications')}</Heading>
+            <Heading level={3}>Web Applications</Heading>
             <p>
-              {t(
-                'Businesses often need help digitalizing their processes with custom web software. Building robust and reliable solutions is beneficial for both your customers and your business goals. Already got a team working on your digital products? I am open to long-term consultancy collaboration as well.',
-              )}
+              Businesses often need help digitalizing their processes with
+              custom web software. Building robust and reliable solutions is
+              beneficial for both your customers and your business goals.
+              Already got a team working on your digital products? I am open to
+              long-term consultancy collaboration as well.
             </p>
           </div>
-          <PointyLink to="/info">{t('Continue reading')}</PointyLink>
+          <PointyLink to="/info">Continue reading</PointyLink>
         </div>
         <div className="relative flex flex-col text-center">
           <Heading level={2} className="mb-flovan-base">
-            {t('I happily worked for these clients')}
+            I happily worked for these clients
           </Heading>
           <p className="relative z-10 mb-flovan-base text-flovan-md font-light">
-            {t(
-              'In The Pocket, Actes, Telenet, Bakermat Architectuur, icapps, The Reference, Vlaamse Overheid',
-            )}
+            In The Pocket, Actes, Telenet, Bakermat Architectuur, icapps, The
+            Reference, Vlaamse Overheid
           </p>
           <ClientsVisual className="h-auto w-full max-w-80 self-center" />
           <Blob
@@ -113,7 +102,7 @@ const HomePage = (props: PageProps<Queries.IndexPageQuery>) => {
       </Container>
       <Container className="relative">
         <Heading level={2} className="title-line relative z-10">
-          {t('The latest work I did')}
+          The latest work I did
         </Heading>
         <div className="relative z-10 grid grid-cols-1 gap-y-flovan-base md:grid-cols-2 md:gap-flovan-sm lg:gap-flovan-md">
           {projects.map((project, index) => (
@@ -139,19 +128,12 @@ const HomePage = (props: PageProps<Queries.IndexPageQuery>) => {
   )
 }
 
-export const Head = ({
-  data,
-  pageContext,
-}: HeadProps<HeadLocales, I18nPageContext>) => (
-  <FlovanHead
-    namespace="home"
-    localeEdges={data.locales.edges}
-    pageContext={pageContext}
-  />
+export const Head = ({ location }: HeadProps) => (
+  <FlovanHead title="Webdesign & development" pathname={location.pathname} />
 )
 
 export const query = graphql`
-  query IndexPage($language: String!) {
+  query IndexPage {
     actesImage: file(relativePath: { eq: "project-actes.png" }) {
       id
       name
@@ -165,18 +147,6 @@ export const query = graphql`
       name
       childImageSharp {
         gatsbyImageData(placeholder: BLURRED)
-      }
-    }
-
-    locales: allLocale(
-      filter: { ns: { in: ["common", "home"] }, language: { eq: $language } }
-    ) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
       }
     }
   }

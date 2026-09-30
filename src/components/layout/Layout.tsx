@@ -1,5 +1,4 @@
-import { ComponentType, PropsWithChildren, useEffect } from 'react'
-import { useI18next } from '@herob191/gatsby-plugin-react-i18next'
+import { ComponentType, PropsWithChildren } from 'react'
 
 import Footer from './Footer'
 import Header from './Header'
@@ -9,12 +8,6 @@ type LayoutProps = PropsWithChildren<{
 }>
 
 const Layout = ({ children, footerComponent }: LayoutProps) => {
-  const { language } = useI18next()
-
-  useEffect(() => {
-    document.documentElement.lang = language
-  }, [language])
-
   return (
     <div className="flex min-h-screen max-w-[100vw] flex-col items-stretch overflow-x-clip pt-flovan-sm">
       <Header className="relative z-40 px-flovan-sm md:px-flovan-base lg:px-flovan-md" />

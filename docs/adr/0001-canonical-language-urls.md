@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 ## Status
 
-Accepted
+Superseded by [ADR 3](0003-english-only.md)
 
 ## Context
 

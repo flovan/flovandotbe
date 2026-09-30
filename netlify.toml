@@ -8,3 +8,15 @@
   NODE_VERSION = "22"
   YARN_VERSION = "1.9.4"
   YARN_FLAGS = "--no-ignore-optional"
+
+# The site used to be served in Dutch and English under /nl/ and /en/
+# prefixes. Those URLs are indexed, so send them to the English-only pages.
+[[redirects]]
+  from = "/nl/*"
+  to = "/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/en/*"
+  to = "/:splat"
+  status = 301
