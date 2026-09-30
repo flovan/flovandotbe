@@ -82,13 +82,6 @@ const ContactPage = () => {
             <span>Linkedin</span>
           </a>
           <a
-            href="https://x.com/flovan_"
-            className="inline-flex items-center justify-start gap-flovan-xs no-underline"
-          >
-            <Icon name="x" width={28} height={28} />
-            <span>@flovan_</span>
-          </a>
-          <a
             href="https://github.com/flovan"
             className="inline-flex items-center justify-start gap-flovan-xs no-underline"
           >
