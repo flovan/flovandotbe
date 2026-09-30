@@ -150,7 +150,7 @@ const InfoPage = (props: PageProps<Queries.InfoPageQuery>) => {
             <Heading level={3}>Great value at a competitive price.</Heading>
             <p>
               Taking the previous items in consideration, I can offer my
-              services at <Link to="/price">a more competitive price</Link>,
+              services at <Link to="/pricing">a more competitive price</Link>,
               while still delivering high quality work with a quick turnaround.
             </p>
           </div>
