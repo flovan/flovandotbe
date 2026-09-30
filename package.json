@@ -14,18 +14,16 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@babel/cli": "^7.25.7",
-    "@babel/plugin-transform-typescript": "^7.25.7",
     "d3": "^7.9.0",
     "flubber": "^0.4.2",
-    "gatsby-adapter-netlify": "^1.4.0",
     "preact": "^10.24.3",
     "preact-render-to-string": "^6.5.11",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.12"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/plugin-transform-typescript": "^7.25.7",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@skagami/gatsby-plugin-dark-mode": "^2.0.0",
@@ -52,6 +50,7 @@
     "execa": "^8.0.1",
     "fs-extra": "^11.2.0",
     "gatsby": "^5.16.1",
+    "gatsby-adapter-netlify": "^1.4.0",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-postcss": "^6.13.1",
@@ -73,6 +72,7 @@
     "prettier-plugin-tailwindcss": "^0.6.5",
     "rimraf": "^5.0.7",
     "tailwind-merge": "^2.5.2",
+    "tailwindcss": "^3.4.12",
     "tsx": "^4.7.0",
     "typescript": "^5.5.4"
   },

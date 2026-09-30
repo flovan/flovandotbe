@@ -44,6 +44,8 @@ Verify UI work by building and reading the HTML in `public/`, or with
   tooling, mostly `sharp`/libvips pinned by `gatsby-plugin-sharp`. Nothing
   ships to the browser: `npm audit --omit=dev` is the number that matters and
   it is 0.
+  Keep it that way: anything that only runs at build time, Gatsby plugins and
+  the adapter included, goes in `devDependencies`.
 - `netlify.toml` declares `functions = "lambda"`, but no such directory exists
   and the site is fully static. Bot traffic hitting unknown paths costs
   nothing, so it needs no redirect rules.
