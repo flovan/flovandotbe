@@ -50,11 +50,10 @@ const ContactPage = () => {
               Tell me about your vision or your needs, and let’s take it from
               there.
             </p>
-            <ul className="text-flovan-md">
-              <li>
-                <a href="mailto:hello@flovan.be">hello@flovan.be</a>
-              </li>
-            </ul>
+            <p className="text-flovan-md">
+              Send your thoughts over to{' '}
+              <a href="mailto:hello@flovan.be">hello@flovan.be</a>.
+            </p>
           </div>
         </div>
         <div className="relative z-10 flex justify-center self-stretch">
