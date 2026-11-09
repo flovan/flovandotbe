@@ -10,6 +10,12 @@ const Assets = () => (
     />
     <link
       rel="preload"
+      href="/fonts/Jokker-SemiBold.woff2"
+      as="font"
+      crossOrigin="anonymous"
+    />
+    <link
+      rel="preload"
       href="/svg/sprite.svg"
       as="image"
       crossOrigin="anonymous"
