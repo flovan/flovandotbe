@@ -35,7 +35,7 @@ const ProjectCardImage = () => {
       <GatsbyImage
         image={image}
         alt="Project"
-        sizes="(min-width: 768px) 500px, (min-width: 1024px) 600px, 100vw"
+        sizes="(min-width: 1760px) 712px, (min-width: 1024px) calc(50vw - 10.5rem), (min-width: 768px) calc(50vw - 4.75rem), calc(100vw - 3rem)"
       />
     </div>
   )
