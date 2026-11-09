@@ -18,3 +18,9 @@
   from = "/en/*"
   to = "/:splat"
   status = 301
+
+# The pricing page was removed. Its URL is indexed, so send it to /info.
+[[redirects]]
+  from = "/pricing"
+  to = "/info"
+  status = 301

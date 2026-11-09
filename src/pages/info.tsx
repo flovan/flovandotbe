@@ -1,4 +1,4 @@
-import { graphql, HeadProps, Link, PageProps } from 'gatsby'
+import { graphql, HeadProps, PageProps } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
 import Blob from '../components/AsyncBlob'
@@ -9,7 +9,6 @@ import Details from '../components/ui/Details'
 import Heading from '../components/ui/Heading'
 import PointyLink from '../components/ui/PointyLink'
 import ProjectCard from '../components/ui/ProjectCard'
-import StepTabs from '../components/ui/StepTabs'
 import { ReactComponent as CommandmentsVisual } from '../images/illustration-commandments.svg'
 import { ReactComponent as DesignDevelopmentVisual } from '../images/illustration-design-development.svg'
 import { Project } from '../types/types'
@@ -37,11 +36,15 @@ const InfoPage = (props: PageProps<Queries.InfoPageQuery>) => {
               Meaningful web products that are conversion-focused,
               brand-accurate and people-friendly.
             </Heading>
-            <p className="mb-flovan-sm">
-              Here’s what you can expect after you’ve{' '}
-              <Link to="/contact">contacted</Link> me for your project:
+            <p>
+              Hi, I’m <strong>Florian</strong>, and I can help you with{' '}
+              <em>www-what</em> you need. Quite the lame pun, but let’s
+              continue. Basic <strong>web presence</strong>, a{' '}
+              <strong>portfolio</strong> to show off your work, a{' '}
+              <strong>store</strong> to sell your goods on, or a complex
+              bespoke <strong>web application</strong> for your business
+              processes or digital product. The whole lot.
             </p>
-            <StepTabs />
           </div>
           <div className="relative flex justify-center self-stretch">
             <DesignDevelopmentVisual className="h-auto w-full max-w-96" />
@@ -60,105 +63,133 @@ const InfoPage = (props: PageProps<Queries.InfoPageQuery>) => {
         <div className="relative z-10 grid grid-cols-1 gap-y-flovan-base lg:grid-cols-3 lg:gap-flovan-base xl:gap-flovan-md">
           <div>
             <Heading level={2} className="title-line relative z-10">
-              Overview of my services
+              End-to-end service
             </Heading>
             <p>
-              It might appear simple on the surface, but there are actually a
-              number of <em>moving parts</em> to consider when creating products
-              for the web.
+              If you need <em>something</em> for the web, let’s have a chat!
+              I’ll give it the looks and make it do its thing.
             </p>
           </div>
           <div className="flex flex-col gap-flovan-xs lg:col-span-2">
-            <Details title="Design" className="-mb-px">
+            <Details
+              title={
+                <>
+                  <span className="font-bold">Design:</span> making it pretty
+                </>
+              }
+              className="-mb-px"
+            >
               <p>
-                I create <strong>timeless designs</strong> for your website, and
-                easy to understand <strong>user interfaces</strong> for your web
-                applications.
+                Timeless and thoughtful <strong>design</strong> goes hand in
+                hand with a great <strong>user experience</strong>.
+                Purpose-driven, not just adding a cursor effect because we can.
               </p>
               <p>
-                We all like eye-catching and shiny things, but user experience
-                and accessibility always need to be taken into consideration
-                when designing for the browser.
+                We’ll create something that is a reflection of yourself or your
+                business. Intentional and refined.
               </p>
               <p>
                 I can also help out with <strong>branding</strong> needs—a logo,
-                a new font, or some fresh and dazzling colors. I’ll keep in mind
-                that you might need some print work done in the future,by
-                ensuring that your brand colors don’t look like mud on paper.
-              </p>
-              <p>
-                Need <em>actual</em> print work? let me know!
-              </p>
-              <p></p>
-            </Details>
-            <Details title="Development" className="-mb-px">
-              <p>
-                I create both simple static <strong>websites</strong>, as well
-                as larger ones with a content management system. Translations?
-                Check! Selling your products online? Check.
-              </p>
-              <p>
-                Your business might also need some custom built internal tools,
-                or perhaps you are creating an in-house product. I am no
-                stranger to working on larger <strong>web applications</strong>,
-                and can help with full-stack development using modern and
-                battle-tested technologies, deployed on a resilient
-                infrastructure.
+                a new font, or some fresh and dazzling colors. If you ran out of
+                free Vistaprint business cards or need some other{' '}
+                <strong>print work</strong> created, let me know.
               </p>
             </Details>
-            <Details title="Content">
+            <Details
+              title={
+                <>
+                  <span className="font-bold">Development:</span> making it work
+                </>
+              }
+              className="-mb-px"
+            >
+              <p>
+                We’ve made it look the part, but you don’t just want a JPEG that
+                opens up a new email when you click it. Let’s make sure you can
+                be <strong>found online</strong>, by people and AI alike. And
+                let’s have it so you can{' '}
+                <strong>manage your own content</strong>, or{' '}
+                <strong>sell your products</strong>.
+              </p>
+              <p>
+                Or perhaps your business has outgrown stringing together Excel
+                sheets on a shared Dropbox folder. It needs a{' '}
+                <strong>custom tool</strong> that calculates stock, prints
+                tickets, sends emails or integrates with your bookkeeping
+                software? Sounds pretty good right?
+              </p>
+            </Details>
+            <Details
+              title={
+                <>
+                  <span className="font-bold">Content:</span> making it speak
+                </>
+              }
+            >
               <p>
                 Having a functional and good looking product only gets you so
-                far. Your potential customers or users also need something to
-                read and look at, something that inspires or informs them.
+                far. Your potential customers or users also need{' '}
+                <strong>something to read and look at</strong>, something that
+                inspires or informs them.
               </p>
               <p>
-                I work together closely with several talented freelancers that
-                deliver top-notch{' '}
-                <strong>photography, videography and copywriting</strong>. And
-                it’s a small world, so any other requirements can be looked
-                into.
+                While I clearly wrote my own copy here, I work together closely
+                with several talented freelancers that deliver top-notch{' '}
+                <strong>photography</strong>, <strong>videography</strong>{' '}
+                and <strong>copywriting</strong>. And it’s a small world, so
+                any other requirements can be looked into.
               </p>
             </Details>
           </div>
         </div>
       </Container>
       <Container className="relative">
-        <Heading level={2} className="title-line relative z-10">
-          What you can expect
+        <Heading level={2} className="title-line">
+          Working with me
         </Heading>
-        <div className="relative z-10 grid grid-cols-1 gap-flovan-base sm:grid-cols-2 lg:grid-cols-3 lg:gap-flovan-sm xl:gap-flovan-md">
+        <div className="relative z-10 grid grid-cols-1 gap-flovan-base md:grid-cols-2 lg:gap-flovan-md xl:grid-cols-3">
           <div className="prose">
-            <Heading level={3}>Personal service, without any overhead.</Heading>
+            <Heading level={3}>Ad hoc & consultancy</Heading>
             <p>
-              Don’t worry about having to speak to different members of a
-              team—any communication and decision making will be between you and
-              me. A single contact for all your needs.
+              For any form of project, I prefer working on a{' '}
+              <strong>time and materials basis</strong> for an hourly rate.
+              Fixed-price projects are of course up for discussion. I have
+              several years of experience <strong>working long-term</strong> on
+              both young and mature digital projects in an agile environment.
             </p>
           </div>
           <div className="prose">
-            <Heading level={3}>
-              No endless waiting on a planning schedule.
+            <Heading level={3}>Shaped, not slopped</Heading>
+            <p>
+              Everyone’s become <em>that nephew that knows IT</em> these days,
+              but the output quality hasn’t improved, only the threshold to get
+              there. Try to polish slop, and it’ll still be slop. I employ an{' '}
+              <strong>AI-driven way of working</strong>, and produce qualitative
+              output through thoughtful prompting, backed by years of
+              experience.
+            </p>
+          </div>
+          <div className="relative flex flex-col items-center justify-center">
+            <Heading
+              level={1}
+              as="p"
+              className="mb-flovan-base text-center"
+            >
+              Convinced?
+              <br />
+              Tell me about your ideas.
             </Heading>
-            <p>
-              Unexpected changes or requests can take a while to make it into
-              the planning of larger agencies. Having only my own schedule to
-              manage, I can be quite flexible to accommodate your wishes.
-            </p>
-          </div>
-          <div className="prose">
-            <Heading level={3}>Great value at a competitive price.</Heading>
-            <p>
-              Taking the previous items in consideration, I can offer my
-              services at <Link to="/pricing">a more competitive price</Link>,
-              while still delivering high quality work with a quick turnaround.
-            </p>
+            <PointyLink to="/contact">Contact me</PointyLink>
+            <Blob
+              id="info-cta-blob"
+              className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[500px] -translate-x-1/2 -translate-y-1/2"
+              outline
+            />
           </div>
         </div>
         <Blob
-          id="info-services-blob"
-          className="absolute left-0 top-0 h-full w-full scale-x-115 scale-y-130 transition-all"
-          type="rectangle"
+          id="info-questions-blob"
+          className="absolute right-full top-1/2 -z-[1] h-[900px] w-[900px] -translate-y-1/2 translate-x-1/2"
         />
       </Container>
       <Container className="relative grid grid-cols-1 items-center gap-y-flovan-base md:grid-cols-2 md:gap-flovan-base lg:grid-cols-3 lg:gap-flovan-md">
@@ -198,75 +229,6 @@ const InfoPage = (props: PageProps<Queries.InfoPageQuery>) => {
             </ul>
           </div>
         </div>
-      </Container>
-      <Container className="relative flex flex-col items-center">
-        <Heading
-          level={1}
-          as="p"
-          className="mb-flovan-base text-center sm:text-left"
-        >
-          Convinced? Let’s talk!
-        </Heading>
-        <PointyLink to="/contact">Tell me about your ideas</PointyLink>
-        <Blob
-          id="info-cta-blob"
-          className="absolute left-1/2 top-1/2 z-[-1] h-[400px] w-[500px] -translate-x-1/2 -translate-y-1/2"
-          outline
-        />
-      </Container>
-      <Container className="relative">
-        <Heading level={2} className="title-line">
-          Some other things you might want to know
-        </Heading>
-        <div className="relative z-10 grid grid-cols-1 gap-flovan-base md:grid-cols-2 lg:gap-flovan-md xl:grid-cols-3">
-          <div className="prose">
-            <Heading level={3}>Will I get any support afterwards?</Heading>
-            <p>
-              Making sure your website of web application continues to function
-              smoothly is crucial. The duration and intensity of continued
-              support for your project will be tailored to your preference. For
-              websites, there’s{' '}
-              <a href="/pricing#qa">an obligatory monthly fee</a> which comes
-              with a guaranteed 24 hours response time.
-            </p>
-          </div>
-          <div className="prose">
-            <Heading level={3}>Which technologies do you use?</Heading>
-            <p>
-              Project management and documentation will be shared with you on a
-              dedicated Notion space. Design will either be done in Figma or
-              Affinity Designer. For development, I will typically write
-              Typescript code in a combination of React with either Gatsby,
-              Next.js or Remix. Tailwind is my go-to styling library.
-            </p>
-          </div>
-          <div className="prose">
-            <Heading level={3}>Can you help me with a no-code project?</Heading>
-            <p>
-              I take pride in my craft and do not create websites in a no-code
-              environment (such as Webflow, for example). Everything is made to
-              fit, with the utmost attention to factors like UX, responsiveness
-              and load speed. To ensure a high quality end result, I will not be
-              cutting any corners.
-            </p>
-          </div>
-          <div className="prose">
-            <Heading level={3}>
-              Are you available for long-term consultancy?
-            </Heading>
-            <p>
-              Yes, of course. Bigger projects that span a longer period—months
-              or even years—come with a set of challenges that I am no stranger
-              to. I have several years of experience working with start-ups and
-              on mature digital projects in an agile environment. My rates are
-              mentioned on <a href="/pricing">the pricing page</a>.
-            </p>
-          </div>
-        </div>
-        <Blob
-          id="info-questions-blob"
-          className="absolute right-full top-1/2 -z-[1] h-[900px] w-[900px] -translate-y-1/2 translate-x-1/2"
-        />
       </Container>
       <Container className="relative">
         <Heading level={2} className="title-line relative z-10">

@@ -25,9 +25,6 @@ const SeeAlsoBlock = ({ className }: PropsWithClassName) => {
         <div className="prose">
           <ul>
             <li>
-              The <a href="/pricing">rates</a> for which I work
-            </li>
-            <li>
               What you can expect when <a href="/info">working with me</a>
             </li>
           </ul>

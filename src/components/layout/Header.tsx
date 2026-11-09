@@ -20,11 +20,11 @@ const Header = ({ className }: PropsWithClassName) => {
         </Link>
         <nav>
           <ul className="flex gap-6 xs:gap-8">
-            <li>
-              <MenuLink to="/info">Info</MenuLink>
+            <li className="sr-only sm:not-sr-only">
+              <MenuLink to="/">Home</MenuLink>
             </li>
             <li>
-              <MenuLink to="/pricing">Pricing</MenuLink>
+              <MenuLink to="/info">Info</MenuLink>
             </li>
             <li>
               <MenuLink to="/contact">Contact</MenuLink>

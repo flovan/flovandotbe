@@ -75,11 +75,10 @@ const HomePage = (props: PageProps<Queries.IndexPageQuery>) => {
           <div className="prose mb-flovan-base">
             <Heading level={3}>Web Applications</Heading>
             <p>
-              Businesses often need help digitalizing their processes with
-              custom web software. Building robust and reliable solutions is
-              beneficial for both your customers and your business goals.
-              Already got a team working on your digital products? I am open to
-              long-term consultancy collaboration as well.
+              Creating, maintaining or growing robust web applications for your
+              business is my main bread and butter. Already got a team working
+              on your digital products? I am open to long-term consultancy
+              collaboration as well.
             </p>
           </div>
           <PointyLink to="/info">Continue reading</PointyLink>

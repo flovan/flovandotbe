@@ -1,10 +1,16 @@
-import { PropsWithChildren, useEffect, useRef, useState } from 'react'
+import {
+  PropsWithChildren,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 
 import { joinClassName } from '../../lib/class-name'
 import { PropsWithClassName } from '../../types/types'
 
 type DetailsProps = PropsWithChildren<
-  PropsWithClassName<{ name?: string; title: string }>
+  PropsWithClassName<{ name?: string; title: ReactNode }>
 >
 
 const Details = ({ title, children, className, ...props }: DetailsProps) => {
@@ -54,7 +60,7 @@ const Details = ({ title, children, className, ...props }: DetailsProps) => {
       const end = `${summaryElement.offsetHeight + contentElement.offsetHeight}px`
       const elementAnimation = detailsElement.animate(
         { height: [start, end] },
-        { duration: 300, easing: 'ease-in-out' },
+        { duration: 200, easing: 'ease-in-out' },
       )
 
       elementAnimation.onfinish = () => {
@@ -138,12 +144,14 @@ const Details = ({ title, children, className, ...props }: DetailsProps) => {
     >
       <summary
         ref={summaryElementRef}
-        className="group flex cursor-pointer select-none items-center justify-between p-flovan-sm font-bold"
+        className="group flex cursor-pointer select-none items-center justify-between p-flovan-sm"
       >
         <span className="transition-colors group-hover:text-primary">
           {title}
         </span>
-        <span className="underline">{isOpen ? 'Close' : 'Read'}</span>
+        <span className="font-bold underline">
+          {isOpen ? 'Close' : 'Read'}
+        </span>
       </summary>
       <div
         ref={contentElementRef}
