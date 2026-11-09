@@ -41,12 +41,6 @@ const CodePage = () => {
               for multiple font files.
             </p>
             <p>
-              The pulsing blobs in the background are animated using{' '}
-              <a href="http://d3js.org">D3</a> and the shapes where generated
-              using the <a href="https://www.blobmaker.app">Blobmaker</a>{' '}
-              website.
-            </p>
-            <p>
               I roughly designed this website in{' '}
               <a href="https://affinity.serif.com/en-us/designer/">
                 Affinity Designer
