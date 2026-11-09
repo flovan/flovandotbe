@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { interpolate } from 'flubber'
 
 import { shuffleArray } from '../lib/array'
 import BlobShape, {
@@ -11,6 +10,25 @@ import BlobShape, {
 // Same curve as the d3 transitions this replaced
 const easeCubicInOut = (t: number) =>
   t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2
+
+const toNumbers = (path: string) => path.match(/-?\d*\.?\d+/g)!.map(Number)
+
+const toPath = (numbers: Array<number>) => {
+  let path = `M${numbers[0]},${numbers[1]}`
+  for (let i = 2; i < numbers.length; i += 6) {
+    path += `C${numbers.slice(i, i + 6).join(',')}`
+  }
+  return `${path}Z`
+}
+
+const interpolate = (from: string, to: string) => {
+  const a = toNumbers(from)
+  const b = toNumbers(to)
+  return (t: number) =>
+    toPath(
+      a.map((value, i) => Number((value + (b[i] - value) * t).toFixed(2))),
+    )
+}
 
 /**
  * Blob component that morphs in between several paths in a randomized order.
